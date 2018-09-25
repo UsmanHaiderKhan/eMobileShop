@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201807191535513_RemoveMobileOSsProperty.Designer.cs">
       <DependentUpon>201807191535513_RemoveMobileOSsProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809251932177_contacttbl.cs" />
+    <Compile Include="Migrations\201809251932177_contacttbl.Designer.cs">
+      <DependentUpon>201809251932177_contacttbl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductMgmt\CartItem.cs" />
     <Compile Include="ProductMgmt\Contact.cs" />
@@ -116,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807191535513_RemoveMobileOSsProperty.resx">
       <DependentUpon>201807191535513_RemoveMobileOSsProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809251932177_contacttbl.resx">
+      <DependentUpon>201809251932177_contacttbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
