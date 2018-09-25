@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EVSFinalProjectClasses.ProductMgmt;
 using System.Data.Entity;
-using EVSFinalProjectClasses.ProductMgmt;
 
 namespace EVSFinalProjectClasses.UserManagment
 {
@@ -27,6 +22,7 @@ namespace EVSFinalProjectClasses.UserManagment
         public DbSet<PlaceOrder> PlaceOrders { get; set; }
         public DbSet<Gender> Genders { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
 
 
