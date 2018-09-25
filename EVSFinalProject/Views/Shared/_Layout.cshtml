@@ -76,6 +76,12 @@
                                 <img src="/Content/Images/@Url.Content(currentuser.ImageUrl)" style="width: 50px; height: 50px;" class="img-responsive img-circle" />
                             </li>
                         }
+                        <li>
+                            <a href="@Url.Action("Login","Users")"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("SignUp","Users")"><span class="fa fa-user-plus"></span>&nbsp;Signup</a>
+                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
