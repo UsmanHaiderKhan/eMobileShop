@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
@@ -19,8 +18,6 @@
     <link href="~/Content/sweetalert.css" rel="stylesheet" />
     <link href="~/Content/animate.css" rel="stylesheet" />
     <link href="~/Content/main.css" rel="stylesheet" />
-
-
 </head>
 <body>
     <header>
@@ -36,7 +33,6 @@
                     </button>
                     <a class="navbar-brand" href="@Url.Action("index","Home")"><span class="glyphicon glyphicon-phone"></span><i class="fa fa-cog fa-spin" style="color: crimson"></i>nLine <strong>M</strong><i class="fa fa-cog fa-spin" style="color: chartreuse"></i>bile <strong>S</strong>h<i class="fa fa-cog fa-spin" style="color: darkorange"></i>pe</a>
                 </div>
-
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -69,30 +65,30 @@
                                     <li><a href="@Url.Action("changepassword","Contact",new{id=currentuser.Id})"><span class="fa fa-lock"></span> &nbsp;Change Password</a></li>
                                     <li><a href="@Url.Action("UserSetting","Users",new{id=currentuser.Id})"><span class="fa fa-cog"></span>&nbsp; User Profile Setting</a></li>
                                     <li class="divider"></li>
-                                    <li>@Html.ActionLink("Logout", "Logout", "Users", null, new { })</li>
+                                    <li><a href="@Url.Action("Logout","Users")"><span class="fa fa-sign-out-alt"></span>&nbsp; Logout</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <img src="/Content/Images/@Url.Content(currentuser.ImageUrl)" style="width: 50px; height: 50px;" class="img-responsive img-circle" />
                             </li>
                         }
-                        <li>
-                            <a href="@Url.Action("Login","Users")"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("SignUp","Users")"><span class="fa fa-user-plus"></span>&nbsp;Signup</a>
-                        </li>
+                        else if (currentuser == null)
+                        {
+                            <li>
+                                <a href="@Url.Action("Login","Users")"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("SignUp","Users")"><span class="fa fa-user-plus"></span>&nbsp;Signup</a>
+                            </li>
+                        }
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
     </header>
-
     <div class="container-fluid">
         @RenderBody()
     </div>
-
-
     <div class="nav navbar-inverse navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="row">
@@ -109,9 +105,7 @@
             </div>
         </div>
     </div>
-
     <!-------------------------------Script Files-------------------------------------->
-
     <script src="~/Scripts/jquery-1.10.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -165,7 +159,6 @@
         })
     </script>
     @RenderSection("myscript", required: false)
-
 </body>
 </html>
 @*<nav class="navbar navbar-inverse">
