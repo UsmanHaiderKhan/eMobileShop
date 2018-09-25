@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductMgmt\CartItem.cs" />
+    <Compile Include="ProductMgmt\Contact.cs" />
     <Compile Include="ProductMgmt\Mobile.cs" />
     <Compile Include="ProductMgmt\MobileBrand.cs" />
     <Compile Include="ProductMgmt\MobileImage.cs" />
