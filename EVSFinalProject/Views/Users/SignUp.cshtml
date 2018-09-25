@@ -1,0 +1,178 @@
+﻿@model EVSFinalProjectClasses.UserManagment.User
+
+@{
+    ViewBag.Title = "SignUp";
+}
+<link href="~/Content/fontawsome/css/fontawesome-all.min.css" rel="stylesheet" />
+<div>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog" style="width: 1250px">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="text-align: center;">Get Register Your Self</h4>
+
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("SignUp", "Users", new { c = ViewBag.Controller, a = ViewBag.Action }, FormMethod.Post, new { id = "loginform", enctype = "multipart/form-data" }))
+                    {
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <div style="margin-top: 4%">
+                                    <div class="" id="fileUpldbtnContainer" style="padding: 0; width: 221px;">
+                                        <div>
+                                            <img id="blah" src="" alt="" class="img-responsive" style="height: 153px; width: 174px; z-index: 0; position: absolute; top: 2px;" />
+                                        </div>
+                                        <div class="fileUpload" style="height: 152px; width: 176px; padding: 29px 51px; font-size: 74px; color: rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0.1);">
+                                            <span class="uploadFile"><span class="glyphicon glyphicon-plus"></span></span>
+                                            <input id="photo" name="photo" type="file" class="upload" style="position: absolute; top: -2px; left: 16px; margin: 0; padding: 0px; font-size: 2em; cursor: pointer; opacity: 0; filter: alpha(opacity=0); box-sizing: content-box; width: 197px;" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    <label for="fname" class="cols-sm-2 control-label">Full Name</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Enter your Name" })
+                                            <br />
+                                        </div>
+                                        <div style="text-align: center;"> @Html.ValidationMessageFor(m => m.FullName, null, new { style = "color :red" }) </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="cols-sm-2 control-label">Email</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter your Email" })
+                                            <br />
+                                        </div>
+                                        <div style="text-align: center;"> @Html.ValidationMessageFor(m => m.Email, null, new { style = "color :red" }) </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username" class="cols-sm-2 control-label">Login Id</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                                            @Html.TextBoxFor(m => m.LoginId, new { @class = "form-control", Placeholder = "Enter User Name" })
+                                            <br />
+                                        </div>
+                                        <div style="text-align: center;"> @Html.ValidationMessageFor(m => m.LoginId, null, new { style = "color :red" }) </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country" class="cols-sm-2 control-label">select country</label>
+                                    <div class="cols-sm-10" id="country">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-flag fa-lg" aria-hidden="true"></i></span>
+                                            @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.countries, "- Select Country -", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="securityquestion" class="cols-sm-2 control-label"> Security Question </label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-question fa-lg" aria-hidden="true"></i></span>
+                                            @Html.TextBoxFor(m => m.SecurityQuestion, new { @class = "form-control", placeholder = "Security Question" })
+                                            <br />
+                                        </div>
+                                        <div style="text-align: center"> @Html.ValidationMessageFor(m => m.SecurityQuestion, null, new { style = "color :red" }) </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="securityquestion" class="cols-sm-2 control-label"> Active Phone </label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></span>
+                                            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", placeholder = "Phone No Formate 3349875662" })
+                                            <br />
+                                        </div>
+                                        <div style="text-align: center"> @Html.ValidationMessageFor(m => m.Phone, null, new { style = "color :red" }) </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Enter Passwword", name = "password" })
+                                            <br />
+                                        </div>
+                                        <div style="text-align: center;"> @Html.ValidationMessageFor(m => m.Password, null, new { style = "color :red" }) </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="conpassword" class="cols-sm-2 control-label">Confirm Password</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                            @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                                            <br />
+                                        </div>
+                                        <div style="text-align: center;"> @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { style = "color :red" }) </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dob" class="cols-sm-2 control-label">Date of Birth </label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></span>
+                                            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", placeholder = "dd/mm/yyyy", type = "date" })
+                                            <br />
+                                        </div>
+                                        <div style="text-align: center"> @Html.ValidationMessageFor(m => m.BirthDate, null, new { style = "color :red" }) </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city" class="cols-sm-2 control-label">Select City</label>
+                                    <div class="cols-sm-10" id="citydiv">
+                                        <div class="input-group ">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="securityans" class="cols-sm-2 control-label"> Security Answer </label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-question fa-lg" aria-hidden="true"></i></span>
+                                            @Html.TextBoxFor(m => m.SecurityAnswer, new { @class = "form-control", placeholder = "Security Answer" })
+                                            <br />
+                                        </div>
+                                        <div style="text-align: center"> @Html.ValidationMessageFor(m => m.SecurityAnswer, null, new { style = "color :red" }) </div>
+                                    </div>
+                                </div><br />
+                                <div class="cols-sm-10" style="margin-top: 3%">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Gender.Name) &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                        @foreach (var b in (IEnumerable<SelectListItem>)ViewBag.GenderList)
+                                        {
+                                            <label>@Html.RadioButton("gender.Name", b.Value) @b.Text</label>
+                                        }
+                                    </div>
+                                </div>
+                            </div>@*col-lg-6*@
+                        </div>
+                        <button type="submit" class="fa fa-user-plus fa-lg btn btn-success btn-lg" id="register" style="margin-left:85%">&nbsp;Register</button>
+                    }
+
+                </div>
+                @*<div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>

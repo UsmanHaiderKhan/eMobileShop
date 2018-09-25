@@ -1,0 +1,21 @@
+﻿@model EVSFinalProjectClasses.UserManagment.User
+@{
+    ViewBag.Title = "Message";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron container-border col-lg-6 col-lg-offset-3" style="margin-top:14%">
+
+    <h2 style="font-family:'Bernard MT';color:tomato;">Your Account Has Been Created Successfully</h2>
+    @if (Model.LoginId != null && Model.Password != null)
+    {
+        <p style="font-family:'Bernard MT'">Your Login Id Is:&nbsp;&nbsp; @Model.LoginId</p>
+        <p style="font-family:'Bernard MT'">Your Password Is:&nbsp;&nbsp; @Model.Password</p>
+
+    }
+    else
+    {
+        <h3>Null</h3>
+    }
+    <a href="@Url.Action("Login")" class="btn btn-success btn-lg">Go to Login</a>
+</div>

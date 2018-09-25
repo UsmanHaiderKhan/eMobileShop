@@ -1,0 +1,48 @@
+﻿body {
+}
+
+.prodsmyitem {
+    text-align: center;
+}
+
+    .prodsmyitem h2 {
+        color: #ff0000;
+        font-size: 120%;
+        font-weight: bold;
+        padding: 10px;
+        margin: 0px;
+    }
+
+    .prodsmyitem p {
+        font-weight: bold;
+        padding: 0px 0px 0px 10px;
+        margin: 0px;
+    }
+
+.mainbannerwpr {
+    margin-bottom: 30px;
+}
+
+
+.mytab {
+    border-left: solid 1px #e4e4e4;
+    border-right: solid 1px #e4e4e4;
+    border-bottom: solid 1px #e4e4e4;
+    padding: 20px;
+}
+
+.container-border {
+    border: solid 1px #fff5ee;
+    padding: 40px 50px;
+    margin-top: 16vh;
+    -webkit-box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
+    box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
+}
+
+.bg-19443 {
+    background-image: url('19443.jpg');
+    background-size: cover;
+    background-repeat: repeat-x,repeat-y;
+    opacity: 1.5;
+}

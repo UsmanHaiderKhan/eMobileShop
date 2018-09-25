@@ -1,0 +1,215 @@
+﻿@using EVSFinalProject.Models
+@using EVSFinalProjectClasses
+@using EVSFinalProjectClasses.ProductMgmt
+@using EVSFinalProjectClasses.UserManagment
+@{
+    User currentuser = (User)Session[WebUtils.Current_User];
+    List<SelectListItem> categories = ModelHelper.ToSelectItemList(new ProductHandler().GetBrands());
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawsome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/sweetalert.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("index","Home")"><span class="glyphicon glyphicon-phone"></span><i class="fa fa-cog fa-spin" style="color: crimson"></i>nLine <strong>M</strong><i class="fa fa-cog fa-spin" style="color: chartreuse"></i>bile <strong>S</strong>h<i class="fa fa-cog fa-spin" style="color: darkorange"></i>pe</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="@Url.Action("index","Home")"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Home <span class="sr-only">(current)</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;Categories<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var v in categories)
+                                {
+                                    <li><a href="@Url.Action("ByCategory","Home",new{ id = Convert.ToInt32(v.Value)})"><span class="glyphicon glyphicon-tag"></span> @v.Text</a></li>
+                                }
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ViewCart","Cart")"> Cart <span id="cartitems" class="badge">0</span></a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index","Contact")"><span class="fa fa-phone"></span>&nbsp;&nbsp;Contact Us</a></li>
+                        @if (currentuser != null && currentuser.IsInRole(WebUtils.Admin))
+                        {
+                            <li>@Html.ActionLink("Go To Admin Panal", "dashBoard", "Admin", null, new { style = "color:white" })</li>
+                        }
+                        else if (currentuser != null)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user" style="color: whitesmoke"></span>&nbsp;User Info<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"> <span class="glyphicon glyphicon-user"></span> @currentuser.FullName</a></li>
+                                    <li><a href="@Url.Action("changepassword","Contact",new{id=currentuser.Id})"><span class="fa fa-lock"></span> &nbsp;Change Password</a></li>
+                                    <li><a href="@Url.Action("UserSetting","Users",new{id=currentuser.Id})"><span class="fa fa-cog"></span>&nbsp; User Profile Setting</a></li>
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink("Logout", "Logout", "Users", null, new { })</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="/Content/Images/@Url.Content(currentuser.ImageUrl)" style="width: 50px; height: 50px;" class="img-responsive img-circle" />
+                            </li>
+                        }
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+
+
+    <div class="nav navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <a href="#"><h4 align="center" style="color: white">Usman Haider Khan</h4></a>
+                </div>
+                <div class="col-lg-6">
+                    <h5 align="center">
+                        <a href="#">
+                            C@py Right Law Reserved By Evs Project
+                        </a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-------------------------------Script Files-------------------------------------->
+
+    <script src="~/Scripts/jquery-1.10.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //here we can print the report of the
+            //product that is buyed by the client
+
+            $.ajax(
+                {
+                    url: "/Cart/ItemsCount",
+                    type: "get"
+                }
+            ).done(function (itemscount) {
+                $("#cartitems").text(itemscount);
+            });
+            $(".cartqtytxt").change(function () {
+                var elt = $(this);
+                var qty = elt.val();
+                if (qty != 0) {
+                    var qs = "?id=" + $(this).data("pid") + "&qty=" + qty;
+                    $.ajax(
+                        {
+                            url: "/Cart/Update" + qs,
+                            type: "get",
+                        }
+                    ).done(function (itemscount) {
+                        $("#cartitems").text(itemscount);
+                    });
+                }
+            });
+            $(".addcartbtn").click(function () {
+                var obj = {
+                    "Id": $(this).data("pid"),
+                    "Name": $(this).data("pname"),
+                    "Price": $(this).data("pprice"),
+                    "ImageUrl": $(this).data("purl"),
+                    "Quantity": $(this).data("pqty")
+                }
+                $(this).parents("#proditem").fadeOut(300);
+                $.ajax(
+                    {
+                        url: "/Cart/Add",
+                        type: "get",
+                        data: obj
+                    }
+                ).done(function (itemscount) {
+                    $("#cartitems").text(itemscount);
+                });
+                $(this).parents("#proditem").fadeIn(300);
+            });
+        })
+    </script>
+    @RenderSection("myscript", required: false)
+
+</body>
+</html>
+@*<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand glyphicon glyphicon-phone" href="#">MobileShope</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" class="glyphicon glyphicon-home">&nbsp;Home<span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle glyphicon glyphicon-tags" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;Categories<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="glyphicon glyphicon-tag">Mobile</a></li>
+                            <li><a href="#" class="glyphicon glyphicon-tag">Laptop</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (currentuser != null && currentuser.IsInRole(WebUtils.Admin))
+                    {
+                        <li>@Html.ActionLink("Go To Admin Panal", "dashBoard", "Admin", null, new { style = "color:white" })</li>
+                    }
+                    else if (currentuser != null)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" style="color: whitesmoke"></span>User Info<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"> <span class="glyphicon glyphicon-user"></span> @currentuser.FullName</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Change Password</a></li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Logout", "Logout", "Users", null, new { @class = "fa fa-sign-out fa-lg" })</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <img src="~/Content/Images/IMG20171109130742.jpg" style="width: 60px; height: 60px;" class="img-responsive img-circle" />
+                        </li>
+
+                    }
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>*@

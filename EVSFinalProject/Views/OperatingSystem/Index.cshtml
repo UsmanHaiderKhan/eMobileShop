@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EVSFinalProjectClasses.ProductMgmt.MobileOS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Add New", "AddOperatingSystem")
+</p>
+<table class="table table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteOS", new { id = item.Id }) |
+                @Html.ActionLink("OSVersion", "OSVersion", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>

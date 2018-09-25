@@ -1,0 +1,74 @@
+﻿
+@model EVSFinalProjectClasses.ProductMgmt.PlaceOrder
+@{
+    ViewBag.Title = "PlaceOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .container-border23 {
+        border: solid 1px #f76D00;
+        padding: 40px 50px;
+        margin-top: 12vh;
+        margin-right: 50%;
+        padding-bottom: 1.7%;
+        -webkit-box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
+        box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
+    }
+</style>
+<body class="bg-19443">
+    <h2>PlaceOrder</h2>
+
+    @using (Html.BeginForm("PlaceOrder", "Product", FormMethod.Post, new { id = "place" }))
+    {
+        <div class="container">
+            <div class="col-lg-6 col-lg-offset-3 container-border23">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.BuyerName, new { style = "color:white" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
+                        @Html.TextBoxFor(m => m.BuyerName, null, new { @class = "form-control", placeholder = "Enter Buyer Name" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FullAddress, new { style = "color:white" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-address-card fa-lg" aria-hidden="true"></i></span>
+                        @Html.TextBoxFor(m => m.FullAddress, null, new { @class = "form-control", placeholder = "Enter Your FullAddress" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.EmailAddress, new { style = "color:white" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-address-card fa-lg" aria-hidden="true"></i></span>
+                        @Html.TextBoxFor(m => m.EmailAddress, null, new { @class = "form-control", placeholder = "Enter Your FullAddress" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Phone, new { style = "color:white" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></span>
+                        @Html.TextBoxFor(m => m.Phone, null, new { @class = "form-control", placeholder = "Enter Your Phon" })
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success pull-right"><span class="fa fa-shopping-basket"></span>&nbsp;&nbsp;PlaceOrder</button>
+            </div>
+        </div>
+
+    }
+</body>
+@section myscript
+{
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Product/EmailSendToCutomer",
+                success: function (data) {
+                    alert("Heellooo");
+                }
+            });
+        });
+    </script>
+}

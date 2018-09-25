@@ -1,0 +1,34 @@
+﻿@using EVSFinalProjectClasses.UserManagment
+@model City
+@{
+    ViewBag.Title = "Locations";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Locations</h2>
+@using (Html.BeginForm("Locations", "Admin", null, FormMethod.Post, new { id = "locationid" }))
+{
+    <div class="row">
+        <div class="col-lg-4">
+            @Html.LabelFor(m => m.Counrty)
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></span>
+                @Html.TextBoxFor(m => m.Counrty, null, new { @class = "form-control", placeholder = "Add Country" })
+            </div>
+            @Html.ValidationMessageFor(m => m.Counrty, null, new { style = "color:red;align:center" })
+        </div>
+        <div class="col-lg-4">
+            @Html.LabelFor(m => m.Name)
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></span>
+                @Html.TextBoxFor(m => m.Name, null, new { @class = "form-control", placeholder = "Add City" })
+            </div>
+            @Html.ValidationMessageFor(m => m.Name, null, new { style = "color:red;align:center" })
+        </div>
+        <br /><br /><br /><br />
+        <div class="col-lg-4">
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp;AddLocation</button>
+        </div>
+
+    </div>
+}

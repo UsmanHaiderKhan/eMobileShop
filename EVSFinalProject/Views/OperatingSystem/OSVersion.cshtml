@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EVSFinalProjectClasses.ProductMgmt.MobileOSVersion>
+@{
+    ViewBag.Title = "OSVersion";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>OSVersion of <em><u>@ViewBag.OperatingSystem</u></em></h2>
+
+<p>
+    @Html.ActionLink("Add New", "AddOSVersion", new { id = ViewBag.OSId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            OS Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @ViewBag.OperatingSystem
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteOSVersion", new { id = item.Id, OSId = ViewBag.OSId })
+            </td>
+        </tr>
+    }
+
+
+</table>
+
+<p>@Html.ActionLink("Back To List", "Index")</p>

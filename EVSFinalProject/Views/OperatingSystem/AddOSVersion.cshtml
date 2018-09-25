@@ -1,0 +1,25 @@
+﻿@model EVSFinalProjectClasses.ProductMgmt.MobileOSVersion
+@{
+    ViewBag.Title = "AddOSVersion";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Add OSVersion of <b><u>@ViewBag.OperatingSystem</u></b></h2>
+
+@using (Html.BeginForm("AddOSVersion", "OperatingSystem", FormMethod.Post, new { id = "osversionform" }))
+{
+
+    <div class="col-lg-4 col-md-8 col-sm-12">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "os", placeholder = "Add OS-Version" })
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" type="submit">Save</button>
+        </div>
+        <div class="form-group">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+
+}

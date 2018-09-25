@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flying WellCome</title>
+
+    <link href="~/Content/well.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <style>
+        /*.btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+            border-radius: 30px;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+        }
+
+            .btn:hover {
+                background-color: red;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+                color: white;
+            }*/
+        .button {
+            display: inline-block;
+            border-radius: 30px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+
+                .button span:after {
+                    content: '\00bb';
+                    position: absolute;
+                    opacity: 0;
+                    top: 0;
+                    right: -20px;
+                    transition: 0.5s;
+                }
+
+            .button:hover span {
+                padding-right: 25px;
+            }
+
+                .button:hover span:after {
+                    opacity: 1;
+                    right: 0;
+                }
+    </style>
+</head>
+<body>
+    <div>
+        <marquee style="color: #ffffff" behavior="scroll" direction="left"><h3>Developed By Usman Haider Khan & Dev_team</h3></marquee>
+    </div>
+    <div>
+        <ul class="fly-in-text hidden" style="text-align: center">
+            <li style="color: tomato">W</li>
+            <li style="color: green">E</li>
+            <li style="color: yellow">L</li>
+            <li style="color: blueviolet">C</li>
+            <li style="color: aqua">O</li>
+            <li style="color: crimson">M</li>
+            <li style="color: deeppink">E</li>
+            <li style="color: #7fffd4">To</li>
+            <li style="color: #7fff00">MY</li>
+            <li style="color: darkorange">MOBILE</li>
+            <li style="color: tan">SHOP</li>
+
+        </ul>
+        <a href="/Users/Login/" class="button" style="margin-top:27%; margin-left: 37%; width: 230px;font-family: sans-serif"><span>Go to Login</span></a>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                $('.fly-in-text').removeClass('hidden');
+            },
+                500);
+        });
+    </script>
+</body>
+</html>
+

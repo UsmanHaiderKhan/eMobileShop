@@ -1,0 +1,25 @@
+﻿@model EVSFinalProjectClasses.UserManagment.City
+@{
+    ViewBag.Title = "AddCity";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Add City of <b><u>@ViewBag.countryName</u></b></h2>
+
+@using (Html.BeginForm("AddCity", "Admin", FormMethod.Post, new { id = "cityform" }))
+{
+
+    <div class="col-lg-4 col-md-8 col-sm-12">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "city", placeholder = "Add City" })
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" type="submit">Save</button>
+        </div>
+        <div class="form-group">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+
+}

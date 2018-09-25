@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EVSFinalProjectClasses.ProductMgmt.Slider>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.Partial("~/Views/Slider/_DeleteSlider.cshtml")
+<h3>Slider Images</h3>
+@Html.ActionLink("Add New", "AddImages")
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-primary text-center">
+            <th>Images</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr id="row_@item.Id">
+                <td><img src="@item.BrandImage" alt="@item.Title" style="width:60px;height :60px" class="img-responsive img-thumbnail" /></td>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>
+                    <a href="#myModal" data-toggle="modal" id="@item.Id" class="hits btn-danger glyphicon glyphicon-remove"></a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<input type="hidden" id="hiddenOrderId" />
+@section myscript
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".hits").click(function () {
+                var rid = $(this).attr("id");
+                alert(rid);
+                $("#hiddenOrderId").val(rid);
+                $("#modal-id").model('show');
+            });
+
+            $("#hit").click(function (event) {
+                var delRecord = $("#hiddenOrderId").val();
+                $.ajax({
+
+                    url: "/Slider/Delete/" + delRecord,
+                    type: "POST",
+                    data: { id: delRecord },
+                    success: function (result) {
+
+                        $("#modal-id").modal('hide');
+                        $("#row_" + delRecord).remove();
+                    }
+                });
+            });
+        });
+    </script>
+}

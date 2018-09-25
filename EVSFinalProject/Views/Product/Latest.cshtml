@@ -1,0 +1,13 @@
+﻿@using EVSFinalProject.Models
+
+@{
+    ViewBag.Title = "Latest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<ProductSummeryModel> products = ViewBag.LatestProducts;
+}
+
+@Html.Partial("~/Views/Shared/_SummeryList.cshtml", products)
+
+
+
+

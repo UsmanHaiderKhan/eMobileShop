@@ -1,0 +1,19 @@
+﻿@using EVSFinalProject.Models
+@using EVSFinalProjectClasses.ProductMgmt
+
+
+
+@{
+    List<SelectListItem> categories = ModelHelper.ToSelectItemList(new ProductHandler().GetBrands());
+}
+
+@if (categories != null)
+{
+    <ul class="list-group">
+        @foreach (var c in categories)
+        {
+            <li class="list-group-item">@Html.ActionLink(c.Text, "ByCategory", "Home", new { id = Convert.ToInt32(c.Value) }, null)</li>
+        }
+    </ul>
+}
+

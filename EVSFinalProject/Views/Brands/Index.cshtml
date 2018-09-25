@@ -1,0 +1,128 @@
+﻿
+@using EVSFinalProjectClasses.ProductMgmt
+@model IEnumerable<MobileBrand>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 id="message">Index</h2>
+@Html.Partial("~/Views/Brands/_BrandModel.cshtml")
+
+@Html.Partial("~/Views/Brands/_BrandDelete.cshtml")
+<p>
+    @Html.ActionLink("Add New", "AddBrands")
+</p>
+<table class="table table-condensed table-hover table-striped table-responsive" style="float: right">
+    <thead>
+        <tr class="bg-primary text-center">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Banner</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in (List<MobileBrand>)ViewBag.MobBrands)
+        {
+            <tr id="row_@u.Id">
+                <td>@u.Id</td>
+                <td>@u.Name</td>
+                <td><img src="~/Content/Banners/@Url.Content(u.ImageUrl)" alt="No Image" style="width:60px;height :60px" class="img-responsive img-thumbnail" /></td>
+                <td>
+                    <a href="#modal-ids" data-toggle="modal" id="@u.Id" class="hits btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a href="#modal-id" data-toggle="modal" class="btn btn-xs btn-success editbtn" data-id="@u.Id" data-name="@u.Name"><span class="glyphicon glyphicon-edit"></span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<input type="hidden" id="hiddenOrderId" />
+@section myscript{
+    <script type="text/javascript">
+        $(function () {
+            $(".hits").click(function () {
+                var rid = $(this).attr("id");
+                $("#hiddenOrderId").val(rid);
+                $("#modal-id").model('show');
+            });
+
+            $("#hit").click(function (event) {
+                var delRecord = $("#hiddenOrderId").val();
+                alert(delRecord);
+                $.ajax({
+
+                    url: "/Brands/DeleteBrands/" + delRecord,
+                    type: "POST",
+                    data: { id: delRecord },
+                    success: function (result) {
+
+                        $("#modal-ids").modal('hide');
+                        $("#row_" + delRecord).remove();
+                        alert(result);
+                    }
+                });
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+        $(".sbtn").click(function () {
+
+            var brandid = $("#bid").val();
+            var brandname = $("#bname").val();
+
+            var Brand = {
+                "Id": brandid,
+                "Name": brandname
+            };
+            $.ajax({
+                "url": "/Brands/UpdatebyAjex",
+                "method": "post",
+                "data": Brand
+            }).done(function (result) {
+
+                $("#message").html(result);
+                setTimeout(function () {
+                    window.location.href = "/Brands/Index";
+                },
+                    5000);
+
+            }).error(function () {
+
+                alert("failed");
+
+            });
+
+
+        });
+
+        $(".editbtn").click(function () {
+            var id = $(this).data("id");
+            var name = $(this).data("name");
+
+
+            $("#bid").val(id);
+            $("#bname").val(name);
+
+
+        });
+
+
+    </script>
+}
+
+
+
+
+
+

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5BF43DE4-FAAD-422F-813D-311F1A7E088C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EVSFinalProjectClasses</RootNamespace>
+    <AssemblyName>EVSFinalProjectClasses</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>C:\Users\usman\source\repos\EvsFinalAPI\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>C:\Users\usman\source\repos\EvsFinalAPI\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\201807041407521_InitialCreate.cs" />
+    <Compile Include="Migrations\201807041407521_InitialCreate.Designer.cs">
+      <DependentUpon>201807041407521_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807041510131_MobileRelaseDate.cs" />
+    <Compile Include="Migrations\201807041510131_MobileRelaseDate.Designer.cs">
+      <DependentUpon>201807041510131_MobileRelaseDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807171519052_MobileStock.cs" />
+    <Compile Include="Migrations\201807171519052_MobileStock.Designer.cs">
+      <DependentUpon>201807171519052_MobileStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807191453393_UpdateMobileId.cs" />
+    <Compile Include="Migrations\201807191453393_UpdateMobileId.Designer.cs">
+      <DependentUpon>201807191453393_UpdateMobileId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807191530226_UpdateMobileOS.cs" />
+    <Compile Include="Migrations\201807191530226_UpdateMobileOS.Designer.cs">
+      <DependentUpon>201807191530226_UpdateMobileOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807191535513_RemoveMobileOSsProperty.cs" />
+    <Compile Include="Migrations\201807191535513_RemoveMobileOSsProperty.Designer.cs">
+      <DependentUpon>201807191535513_RemoveMobileOSsProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ProductMgmt\CartItem.cs" />
+    <Compile Include="ProductMgmt\Mobile.cs" />
+    <Compile Include="ProductMgmt\MobileBrand.cs" />
+    <Compile Include="ProductMgmt\MobileImage.cs" />
+    <Compile Include="ProductMgmt\MobileOS.cs" />
+    <Compile Include="ProductMgmt\MobileOSVersion.cs" />
+    <Compile Include="ProductMgmt\PlaceOrder.cs" />
+    <Compile Include="ProductMgmt\ProductHandler.cs" />
+    <Compile Include="ProductMgmt\Slider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="dbcontext.cs" />
+    <Compile Include="LocationHandler.cs" />
+    <Compile Include="UserManagment\City.cs" />
+    <Compile Include="UserManagment\Country.cs" />
+    <Compile Include="UserManagment\Gender.cs" />
+    <Compile Include="UserManagment\Role.cs" />
+    <Compile Include="UserManagment\User.cs" />
+    <Compile Include="UserManagment\UserHandler.cs" />
+    <Compile Include="WebUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807041407521_InitialCreate.resx">
+      <DependentUpon>201807041407521_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807041510131_MobileRelaseDate.resx">
+      <DependentUpon>201807041510131_MobileRelaseDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807171519052_MobileStock.resx">
+      <DependentUpon>201807171519052_MobileStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807191453393_UpdateMobileId.resx">
+      <DependentUpon>201807191453393_UpdateMobileId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807191530226_UpdateMobileOS.resx">
+      <DependentUpon>201807191530226_UpdateMobileOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807191535513_RemoveMobileOSsProperty.resx">
+      <DependentUpon>201807191535513_RemoveMobileOSsProperty.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

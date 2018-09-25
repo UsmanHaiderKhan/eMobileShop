@@ -1,0 +1,98 @@
+﻿@model IEnumerable<EVSFinalProjectClasses.ProductMgmt.Mobile>
+
+@{
+    ViewBag.Title = "TotalProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.Partial("~/Views/Admin/_DeleteProduct.cshtml")
+<h2>TotalProduct</h2>
+
+
+<table class="table table-responsive table-condensed table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Images)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @foreach (var v in item.Images)
+            {
+                <td>
+                    <img src="@Url.Content(v.Url)" class="img-responsive img-thumbnail" style="width: 80px; height: 80px;border-radius: 50%" />
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+
+            <td>
+                <a href='#modal-id' data-toggle="modal" id="@item.Id" class="hits btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+        </tr>
+    }
+
+</table>
+<input type="hidden" id="hiddenOrderId" />
+<div style="margin-top: 7%"></div>
+
+@section myscript
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".hits").click(function () {
+                var rid = $(this).attr("id");
+                alert(rid);
+                $("#hiddenOrderId").val(rid);
+                $("#modal-id").model('show');
+            });
+
+            $("#hit").click(function (event) {
+                var delRecord = $("#hiddenOrderId").val();
+                $.ajax({
+
+                    url: "/Admin/DeleteProduct/" + delRecord,
+                    type: "POST",
+                    data: { id: delRecord },
+                    success: function (result) {
+
+                        $("#modal-id").modal('hide');
+                        $("#row_" + delRecord).remove();
+                    }
+                });
+            });
+        });
+    </script>
+}
+

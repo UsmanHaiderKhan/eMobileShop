@@ -1,0 +1,149 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container-border {
+    border: solid 0px #fff5ee;
+    padding: 40px 50px;
+    margin-top: 16vh;
+    -webkit-box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
+    box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
+}
+
+.bg2-img {
+    margin: 0;
+    background-image: url('/content/onr.jpg');
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+}
+
+.logintran {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 460px;
+    height: 500px;
+    padding: 60px 80px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.1);
+}
+
+.user {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    top: calc(-90px/2);
+    left: calc(36%);
+}
+
+.h2 {
+    padding: 0px 0px 20px;
+    margin: 0px;
+    color: #efed40;
+    text-align: center;
+}
+
+.logintran p {
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+    color: darkslateblue;
+}
+
+.logintran input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+    .logintran input[type="text"],
+    .logintran input[type="password"] {
+        border: none;
+        border-bottom: 1px solid #fff;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color: brown;
+        font-size: 20px;
+    }
+
+.img {
+    width: 150px;
+    height: 130px;
+}
+
+::placeholder {
+    color: white;
+}
+
+.logintran input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    color: lightblue;
+    font-size: 16px;
+    background: #ff267e;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+    .logintran input[type="submit"]:hover {
+        background: #efed40;
+        color: #262626;
+    }
+
+.logintran a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mytabpane {
+    padding: 15px;
+    border-left: solid 1px #e4e4e4;
+    border-right: solid 1px #e4e4e4;
+    border-bottom: solid 1px #e4e4e4;
+}
+
+.slide-button-up, .slide-button-down {
+    clear: right;
+    margin-top: 20px;
+    padding: 10px;
+    background: #ccc;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    color: #333;
+    cursor: pointer;
+    width: 148px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#slider {
+    width: 700px;
+    height: 400px;
+    overflow: hidden;
+}
+
+    #slider .slides {
+        display: block;
+        width: 6000px;
+        height: 400px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #slider .slide {
+        float: left;
+        list-style-type: none;
+        width: 700px;
+        height: 400px;
+    }

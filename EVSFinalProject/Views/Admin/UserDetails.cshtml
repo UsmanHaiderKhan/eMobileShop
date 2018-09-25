@@ -1,0 +1,188 @@
+﻿@using EVSFinalProjectClasses.UserManagment
+@model List<User>
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/Userdetail.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+@Html.Partial("~/Views/Admin/_DeleteUserDetails.cshtml")
+
+
+
+<div class="card" style="margin-left: -7%">
+    <div class="top-section">
+    </div>
+    @foreach (var v in Model)
+    {<div class="avatar">
+            <img src="~/Content/Images/@Url.Content(v.ImageUrl)" style="width: 200px; height: 200px" class="img-responsive" />
+        </div>
+
+
+    }
+
+    <div class="bottom-section">
+        @foreach (var b in Model)
+        {
+            <h3 style="font-family: fantasy">@b.FullName</h3>
+        }
+
+        <table class="table table-condensed table-hover table-striped table-responsive" style="float: right">
+            <thead>
+                <tr class="bg-primary text-center">
+                    <th>IsActive</th>
+
+                    <th>FullName</th>
+                    <th>LoginId</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>BirthDate</th>
+                    <th>SecurityQuestion</th>
+                    <th>SecurityAnswer</th>
+                    <th>Roles</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr id="row_@u.Id">
+                        <td>@u.IsActive</td>
+                        <td>@u.FullName</td>
+                        <td>@u.LoginId</td>
+                        <td>@u.Password</td>
+                        <td>@u.Email</td>
+                        <td>@u.BirthDate</td>
+                        <td>@u.SecurityQuestion</td>
+                        <td>@u.SecurityAnswer</td>
+                        <td class="col-lg-4">@u.Role.Name</td>
+                        <td class="col-lg-4">
+                            <a href="#modal-ids" data-toggle="modal" id="@u.Id" class="btn btn-xs btn-danger hits"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="@Url.Action("UpdateUser","Admin",new{id=u.Id})"
+                               class="btn btn-xs btn-success"><span class="glyphicon glyphicon-edit"></span></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a href="@Url.Action("Customer","Admin")" style="color: aliceblue" class="btn btn-primary  btn-link">
+            <span class="fa fa-angle-double-left fa-lg"></span>&nbsp;&nbsp;Back to list
+        </a>
+        <div class="social-media" style="color: crimson">
+            <a class="fa fa-facebook"></a>
+            <a class="fa fa-google-plus" href="#"></a>
+            <a class="fa fa-twitter-square" href="#"></a>
+            <a class="fa fa-linkedin" href="#"></a>
+            <a class="fa fa-dribbble" href="#"></a>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hiddenOrderId" />
+@section myscript
+{
+    <script type="text/javascript">
+
+        //Delete User Details JQuery Code
+        $(function () {
+            $(".hits").click(function () {
+                var rid = $(this).attr("id");
+                alert(rid);
+                $("#hiddenOrderId").val(rid);
+                $("#modal-id").model('show');
+            });
+
+            $("#hit").click(function (event) {
+                var delRecord = $("#hiddenOrderId").val();
+                alert(delRecord);
+                $.ajax({
+
+                    url: "/Admin/DeleteUser/" + delRecord,
+                    type: "POST",
+                    data: { id: delRecord },
+                    success: function (result) {
+
+                        $("#modal-id").modal('hide');
+                        $("#row_" + delRecord).remove();
+                    }
+                });
+            });
+        });
+        // Ending Here Js Code
+
+
+
+        $(".editbtn").click(function () {
+            var uid = $(this).data("uid");
+            $.ajax({
+                url: "/Admin/UpdateLoad/" + uid
+
+            }).done(function (result) {
+                $("#message").html(result);
+                $("#modal-id").modal();
+
+            }).error(function () {
+                alert("failed");
+            });
+            var logid = $(this).data("logid");
+            var fullname = $(this).data("fullname");
+            var password = $(this).data("password");
+            var dob = $(this).data("dob");
+            var email = $(this).data("email");
+            var sa = $(this).data("sa");
+            var sq = $(this).data("sq");
+            var photo = $(this).data("photo");
+            var role = $(this).data("role");
+
+            $("#logid").val(logid);
+            $("#fullname").val(fullname);
+            $("#password").val(password);
+            $("#dob").val(dob);
+            $("#email").val(email);
+            $("#sa").val(sa);
+            $("#sq").val(sq);
+            $("#photo").val(photo);
+            $("#role").val(role);
+
+        });
+
+        //Sperated From the Above File
+        //Sperated From the Above File
+        //Sperated From the Above File
+
+
+        $(document).ready(function () {
+            $(document).on('click', '.fileUpload', function () {
+                $(this).children('.upload').change(function (event) {
+                    readURL(this);
+                    fileName = $(this).val();
+                    //$(this).siblings(".uploadFile").text(fileName);
+                });
+            });
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#blah').attr('src', e.target.result);
+                        //$('.fileUpload').css('background', 'url('+e.target.result+') no-repeat scroll 0% 0%');
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        });
+
+    </script>
+}
+
+
+
+
+
+
+

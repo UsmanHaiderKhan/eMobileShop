@@ -1,0 +1,55 @@
+﻿
+
+@model IEnumerable<EVSFinalProjectClasses.ProductMgmt.Slider>
+@{
+    ViewBag.Title = "Post Slider";
+    int count = 0;
+}
+<div style="margin-top: 5%;">
+    <div id="carousel-id" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-id" data-slide-to="0"></li>
+            <li data-target="#carousel-id" data-slide-to="1"></li>
+            <li data-target="#carousel-id" data-slide-to="2"></li>
+            <li data-target="#carousel-id" data-slide-to="3"></li>
+            <li data-target="#carousel-id" data-slide-to="4"></li>
+            <li data-target="#carousel-id" data-slide-to="5" class="active"></li>
+        </ol>
+        <div class="carousel-inner bounceInUp">
+            @foreach (var v in Model)
+            {
+                <div class="item">
+                    <img src="@Url.Content(v.BrandImage)" alt="@v.Title" style="width: 100%; height: 400px" />
+                    <div class="container ">
+                        <div class="carousel-caption ">
+                            <h1>@v.Title</h1>
+                            <strong style="color: crimson">@v.Description</strong>
+                        </div>
+                    </div>
+                </div>
+            }
+            @{ var First = Model.FirstOrDefault(); }
+            <div class="item active">
+                <img src="@Url.Content(First.BrandImage)" alt="@First.Title" style="width: 100%; height: 400px" />
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>@First.Title</h1>
+                        <strong style="color: crimson">@First.Description</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+</div>
+@*<div class="item active">
+        <img src="@Url.Content(First.BrandImage)" alt="@First.Title" style="width: 100%; height: 400px" />
+        <div class="container">
+            <div class="carousel-caption">
+                <h1>@First.Title</h1>
+                <strong style="color: crimson">@First.Description</strong>
+            </div>
+        </div>
+    </div>*@
