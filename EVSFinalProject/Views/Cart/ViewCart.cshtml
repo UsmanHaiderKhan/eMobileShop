@@ -5,20 +5,18 @@
     ViewBag.Title = "ViewCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ShoppingCart cart = (ShoppingCart)Session[WebUtils.Cart];
-
 }
 <link href="~/Content/fontawsome/css/fontawesome-all.min.css" rel="stylesheet" />
 <h2 class="bounceInLeft" style="color: darkblue; margin-top: 5%;margin-left: 26%">Your Product Cart</h2>
 <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 rotateInUpLeft" style="padding-right:0px;margin-left:25%;">
     <table class="table table-bordered table-responsive table-striped">
         <thead>
-            <tr class="bg-primary text-center">
+            <tr class="bg-primary">
                 <th class="col-lg-2">Image</th>
                 <th class="col-lg-2">Title</th>
                 <th class="col-lg-2">Price</th>
                 <th class="col-lg-2">Quantity</th>
                 <th class="col-lg-2">Total Price</th>
-
                 <th class="col-lg-2">Actions</th>
             </tr>
         </thead>
@@ -27,14 +25,12 @@
             {
                 foreach (var cItem in cart.Items)
                 {
-                    <tr style="text-align: center">
-
+                    <tr class="text-center">
                         <td class="col-lg-1"><img src="@cItem.ImageUrl" alt="@cItem.Name" class="img-responsive img-thumbnail" style="height:40px; width: 50px" /></td>
                         <td class="col-lg-2">@cItem.Name </td>
                         <td class="col-lg-2">@cItem.Price</td>
                         <td class="col-lg-2"><input type="text" disabled="disabled" class="form-control cartqtytxt" style="width:75px" value="@cItem.Quantity" data-pid="@cItem.Id" /></td>
                         <td class="col-lg-2">@cItem.Amount</td>
-
                         <td class="col-lg-3">
                             <a href="@Url.Action("Remove","Cart",new{cItem.Id})" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
                             <a href="/Cart/Update/@cItem.Id" class="btn btn-xs btn-success"><span class="fa fa-edit"></span></a>
@@ -45,12 +41,7 @@
             }
         </tbody>
     </table>
-
     <h3>Your Total Amount is:@ViewBag.GrandTotal</h3>
-
-
-
 
     @Html.ActionLink("Order Now", "PlaceOrder", "Product", null, new { @class = "btn btn-primary" })
 </div>
-
