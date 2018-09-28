@@ -112,12 +112,19 @@
     <Content Include="Content\close-icone-5671-32.png" />
     <Content Include="Content\Images\WhatsApp Image 2018-02-18 at 6.28.29 PM.jpeg" />
     <Content Include="Content\JquerySidebar.css" />
+    <Content Include="Content\Light\src\css\lightbox.css" />
+    <Content Include="Content\Light\src\images\close.png" />
+    <Content Include="Content\Light\src\images\loading.gif" />
+    <Content Include="Content\Light\src\images\next.png" />
+    <Content Include="Content\Light\src\images\prev.png" />
+    <Content Include="Content\Light\src\js\lightbox.js" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\onr.jpg" />
     <Content Include="Content\sb-admin-2.min.css" />
     <Content Include="Content\sins.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\Styles\styles.css" />
     <Content Include="Content\sweetalert.css" />
     <Content Include="Content\fontawsome\css\fa-brands.css" />
     <Content Include="Content\fontawsome\css\fa-brands.min.css" />
@@ -193,6 +200,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\notify.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\sweetalert.js" />
     <Content Include="Scripts\sweetalert.min.js" />
