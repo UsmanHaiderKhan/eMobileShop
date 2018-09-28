@@ -17,6 +17,8 @@
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="~/Content/sweetalert.css" rel="stylesheet" />
     <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/Light/src/css/lightbox.css" rel="stylesheet" />
+    <link href="~/Content/Styles/styles.css" rel="stylesheet" />
     <link href="~/Content/main.css" rel="stylesheet" />
 </head>
 <body>
@@ -108,6 +110,8 @@
     <!-------------------------------Script Files-------------------------------------->
     <script src="~/Scripts/jquery-1.10.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
+    <script src="~/Content/Light/src/js/lightbox.js"></script>
     <script type="text/javascript">
         $(function () {
             //here we can print the report of the
@@ -120,6 +124,7 @@
                 }
             ).done(function (itemscount) {
                 $("#cartitems").text(itemscount);
+
             });
             $(".cartqtytxt").change(function () {
                 var elt = $(this);
@@ -145,6 +150,7 @@
                     "Quantity": $(this).data("pqty")
                 }
                 $(this).parents("#proditem").fadeOut(300);
+                $.notify("Product added Successfully!", "success");
                 $.ajax(
                     {
                         url: "/Cart/Add",
@@ -153,8 +159,10 @@
                     }
                 ).done(function (itemscount) {
                     $("#cartitems").text(itemscount);
+
                 });
                 $(this).parents("#proditem").fadeIn(300);
+
             });
         })
     </script>
