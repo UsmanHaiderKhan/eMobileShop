@@ -1,13 +1,11 @@
 ﻿@using EVSFinalProject.Models
 @using EVSFinalProjectClasses.ProductMgmt
 @model IEnumerable<EVSFinalProjectClasses.ProductMgmt.Slider>
-
 @{
     ViewBag.Title = "Index";
     List<ProductSummeryModel> products = ViewBag.products;
 
 }
-
 @*----------------Content of Side bar------------------*@
 @*<link href="~/Content/sins.css" rel="stylesheet" />
      <link rel="stylesheet" href="assets/css/allSStyles.min.css">
@@ -31,11 +29,6 @@
             <div class="right-box"></div>
         </div>
     </main>*@
-
-
-
-
-
 
 <div>
     <div style="margin-top: 4%;">
@@ -61,7 +54,6 @@
                     </div>
                 }
                 @{ var First = Model.First(); }
-
                 <div class="item active">
                     <img src="@Url.Content(First.BrandImage)" alt="@First.Title" style="width: 100%; height: 400px" />
                     <div class="container">
@@ -86,7 +78,6 @@
         <div id="prodlist">
             @Html.Partial("~/Views/Shared/_SummeryList.cshtml", products)
         </div>
-
     </div>
 </div>
 <br /><br />
@@ -106,8 +97,6 @@
             </div>
         </div>
     </div>*@
-
-
 @*----------------Content of Side bar------------------*@
 @*@section myscript{
         <script type="text/javascript">
