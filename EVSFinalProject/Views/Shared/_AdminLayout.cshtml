@@ -5,7 +5,6 @@
 
     User currentuser = (User)Session[WebUtils.Current_User];
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +16,14 @@
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="~/Content/fontawsome/css/fontawesome-all.min.css" rel="stylesheet" />
     <link href="~/Content/sb-admin-2.min.css" rel="stylesheet" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126546706-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-126546706-1');
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-inverse" role="navigation">
@@ -32,7 +39,6 @@
                 <a class="navbar-brand" href="@Url.Action("DashBoard","Admin")"><span class="glyphicon glyphicon-phone"></span>OnLine Mobile Shop</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-
             <div class="collapse navbar-collapse" id="mainmenu">
                 <ul class="nav navbar-nav" style="width: 50%;">
                     <li style="color: #66cdaa; margin-left: 40%; font-size: 30px; font-family: fantasy;padding-top: 1%">Online Mobile Shop Panel</li>
@@ -64,7 +70,6 @@
                     <li><a href="@Url.Action("Index","OperatingSystem")"><span class="glyphicon glyphicon-apple"></span>&nbsp;&nbsp;Operating System</a></li>
                     <li><a href="@Url.Action("Index","Slider")"><span class="fa fa-file-image fa-lg"></span>&nbsp;&nbsp;Slider Images</a></li>
                     <li><a href="@Url.Action("Index","Brands")"><span class="fa fa-mobile fa-lg"></span>&nbsp;&nbsp;Mobile Brands </a></li>
-
                 </ul>
             </div>
         </div>
@@ -92,7 +97,6 @@
         </div>
     </div>
     <!-------------------------------Script Files-------------------------------------->
-
     <script src="~/Scripts/jquery-1.10.0.min.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
