@@ -34,7 +34,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr id="row_@item.Id">
             @foreach (var v in item.Images)
             {
                 <td>
