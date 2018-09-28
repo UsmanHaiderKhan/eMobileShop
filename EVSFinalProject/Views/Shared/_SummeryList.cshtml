@@ -1,42 +1,32 @@
 ﻿@using EVSFinalProject.Models
 @model IEnumerable<ProductSummeryModel>
-
-
 @if (Model != null)
 {
-    <div class="row">
+    <div class="row" style="margin-bottom: 10px">
         @foreach (var p in Model)
         {
             <div id="proditem" class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:5% ">
-                <div class="thumbnail prodsmyitem">
+                <div class="product-card prodsmyitem">
                     @if (p.ImageUrl != null)
-                    {<img src="@Url.Content(p.ImageUrl)" alt="@p.Name" />}
+                    {
+                        <a href="@Url.Content(p.ImageUrl)" data-lightbox="roadtrip"><img src="@Url.Content(p.ImageUrl)" alt="@p.Name" /></a>
+                    }
                     else
                     {<h3>No Image</h3>}
-
-                    <h2>
-                        @p.Name
-                    </h2>
-                    <p>
-                        @string.Format("{0:N0}", p.Price)
-                    </p>
+                    <h4>@p.Name</h4>
+                    <strong>@p.Price/-</strong>
                     <p class="cartbtnwpr">
-                        <button type="button" style="border-radius: 30px" class="btn btn-primary addcartbtn" data-pid="@p.Id" data-pname="@p.Name" data-pprice="@p.Price" data-purl="@p.ImageUrl" data-pqty="1">
-                            Add To Cart &nbsp;&nbsp; <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <button type="button" style="margin-top: 5px;border-radius: 30px;float: left" class="btn btn-primary addcartbtn" data-pid="@p.Id" data-pname="@p.Name" data-pprice="@p.Price" data-purl="@p.ImageUrl" data-pqty="1">
+                            Cart&nbsp; <span class="glyphicon glyphicon-shopping-cart"></span>
                         </button>
                     </p>
                     <p style="margin-top: 5px">
-                        <a href="@Url.Action("ViewDetail","Home", new { Id = p.Id})" style="border-radius: 30px" class="btn btn-success">View Details&nbsp;&nbsp;<span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a href="@Url.Action("ViewDetail","Home", new { Id = p.Id})" style="border-radius: 30px" class="btn btn-success">Detail &nbsp;<span class="glyphicon glyphicon-eye-open"></span></a>
                     </p>
                 </div>
             </div>
+
         }
     </div>
 
 }
-
-
-
-
-
-
