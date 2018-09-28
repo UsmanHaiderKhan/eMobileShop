@@ -3,6 +3,7 @@
     ViewBag.Title = "Empty";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<center><h2 style="margin-top: 5%">Your Cart is Empty</h2></center>
-
+<center>
+    <h2 style="margin-top: 5%">Your Cart is Empty</h2>
+    <a href="@Url.Action("Index","Home")" class="btn btn-success"><span class="fa fa-home"></span>  Go Home</a>
+</center>
