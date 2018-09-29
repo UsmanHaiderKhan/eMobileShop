@@ -4,21 +4,8 @@
     ViewBag.Title = "PlaceOrder";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style>
-    .container-border23 {
-        border: solid 1px #f76D00;
-        padding: 40px 50px;
-        margin-top: 12vh;
-        margin-right: 50%;
-        padding-bottom: 1.7%;
-        -webkit-box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
-        -moz-box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
-        box-shadow: 2px 1px 25px 3px rgba(0,0,0,0.75);
-    }
-</style>
 <body class="bg-19443">
     <h2>PlaceOrder</h2>
-
     @using (Html.BeginForm("PlaceOrder", "Product", FormMethod.Post, new { id = "place" }))
     {
         <div class="container">
@@ -51,7 +38,6 @@
                         @Html.TextBoxFor(m => m.Phone, null, new { @class = "form-control", placeholder = "Enter Your Phon" })
                     </div>
                 </div>
-
                 <button type="submit" class="btn btn-success pull-right"><span class="fa fa-shopping-basket"></span>&nbsp;&nbsp;PlaceOrder</button>
             </div>
         </div>
