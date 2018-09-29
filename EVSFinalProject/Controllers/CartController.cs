@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using EVSFinalProject.Models;
+﻿using EVSFinalProject.Models;
 using EVSFinalProjectClasses;
-using EVSFinalProjectClasses.UserManagment;
-using EVSFinalProjectClasses.ProductMgmt;
+using System;
+using System.Web.Mvc;
 
 namespace EVSFinalProject.Controllers
 {
