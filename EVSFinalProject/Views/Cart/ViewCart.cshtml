@@ -7,17 +7,17 @@
     ShoppingCart cart = (ShoppingCart)Session[WebUtils.Cart];
 }
 <link href="~/Content/fontawsome/css/fontawesome-all.min.css" rel="stylesheet" />
-<h2 class="bounceInLeft" style="color: darkblue; margin-top: 5%;margin-left: 26%">Your Product Cart</h2>
-<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 rotateInUpLeft" style="padding-right:0px;margin-left:25%;">
+<h2 class="list-group-item-heading text-center" style="margin-top:    15%">View Cart</h2>
+<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-2">
     <table class="table table-bordered table-responsive table-striped">
         <thead>
             <tr class="bg-primary">
-                <th class="col-lg-2">Image</th>
-                <th class="col-lg-2">Title</th>
-                <th class="col-lg-2">Price</th>
-                <th class="col-lg-2">Quantity</th>
-                <th class="col-lg-2">Total Price</th>
-                <th class="col-lg-2">Actions</th>
+                <th class="text-center">Image</th>
+                <th class="text-center">Title</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Total Price</th>
+                <th class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -26,22 +26,31 @@
                 foreach (var cItem in cart.Items)
                 {
                     <tr class="text-center">
-                        <td class="col-lg-1"><img src="@cItem.ImageUrl" alt="@cItem.Name" class="img-responsive img-thumbnail" style="height:40px; width: 50px" /></td>
-                        <td class="col-lg-2">@cItem.Name </td>
-                        <td class="col-lg-2">@cItem.Price</td>
-                        <td class="col-lg-2"><input type="text" disabled="disabled" class="form-control cartqtytxt" style="width:75px" value="@cItem.Quantity" data-pid="@cItem.Id" /></td>
-                        <td class="col-lg-2">@cItem.Amount</td>
-                        <td class="col-lg-3">
+                        <td><img src="@cItem.ImageUrl" alt="@cItem.Name" class="img-responsive img-thumbnail" style="height:40px; width: 50px" /></td>
+                        <td>@cItem.Name </td>
+                        <td>@cItem.Price</td>
+                        <td><input type="text" disabled="disabled" class="form-control cartqtytxt" style="width:75px" value="@cItem.Quantity" data-pid="@cItem.Id" /></td>
+                        <td>@cItem.Amount</td>
+                        <td>
                             <a href="@Url.Action("Remove","Cart",new{cItem.Id})" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
                             <a href="/Cart/Update/@cItem.Id" class="btn btn-xs btn-success"><span class="fa fa-edit"></span></a>
                         </td>
                     </tr>
 
+
                 }
             }
         </tbody>
     </table>
-    <h3>Your Total Amount is:@ViewBag.GrandTotal</h3>
+    @if (cart == null && cart.NumberOfItems == 0)
+    {
+        <h5>You Can Shop any Thing First Some Products in to the Cart</h5>
+        <a href="@Url.Action("Index","Home")" class="btn btn-primary"><span class="fa fa-home"></span>&nbsp;Home</a>
 
-    @Html.ActionLink("Order Now", "PlaceOrder", "Product", null, new { @class = "btn btn-primary" })
+    }
+    else
+    {
+        <h3>Your Total Amount is:@ViewBag.GrandTotal</h3>
+        @Html.ActionLink("Order Now", "PlaceOrder", "Product", null, new { @class = "btn btn-primary" })
+    }
 </div>
