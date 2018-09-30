@@ -53,7 +53,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@Url.Action("Index","Contact")"><span class="fa fa-phone"></span>&nbsp;&nbsp;Contact Us</a></li>
+                        <li><a href="@Url.Action("PostMessage","Contact")"><span class="fa fa-phone"></span>&nbsp;&nbsp;Contact Us</a></li>
                         @if (currentuser != null && currentuser.IsInRole(WebUtils.Admin))
                         {
                             <li>@Html.ActionLink("Go To Admin Panal", "dashBoard", "Admin", null, new { style = "color:white" })</li>
