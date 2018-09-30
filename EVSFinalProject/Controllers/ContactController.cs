@@ -1,18 +1,41 @@
 ﻿using EVSFinalProjectClasses.ProductMgmt;
-using System;
+using EVSFinalProjectClasses.UserManagment;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using EVSFinalProjectClasses.UserManagment;
 
 namespace EVSFinalProject.Controllers
 {
     public class ContactController : Controller
     {
         // GET: Contact
+        [HttpGet]
         public ActionResult Index()
+        {
+            List<Contact> contacts = new ProductHandler().GetAllContacts();
+            return View(contacts);
+        }
+
+        [HttpGet]
+        public ActionResult PostMessage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PostMessage(Contact contact)
+        {
+            dbcontext db = new dbcontext();
+            using (db)
+            {
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+                return RedirectToAction("Send");
+            }
+        }
+
+        public ActionResult Send()
         {
             return View();
         }
