@@ -30,7 +30,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex1-collapse" aria-expanded="False">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -39,19 +39,24 @@
                 <a class="navbar-brand" href="@Url.Action("DashBoard","Admin")"><span class="glyphicon glyphicon-phone"></span>OnLine Mobile Shop</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="mainmenu">
+            <div class="collapse navbar-collapse" id="navbar-ex1-collapse">
                 <ul class="nav navbar-nav" style="width: 50%;">
                     <li style="color: #66cdaa; margin-left: 40%; font-size: 30px; font-family: fantasy;padding-top: 1%">Online Mobile Shop Panel</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="@Url.Action("Index","Home")"><span class="fa fa-home"></span>&nbsp;Visit Site</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;@currentuser.FullName<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li class="divider"></li>
-                            <li><a href="@Url.Action("Logout", "Users")"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-                        </ul>
-                    </li>
+                    @if (currentuser != null)
+                    {
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;@currentuser.FullName<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="divider"></li>
+                                <li><a href="@Url.Action("Logout", "Users")"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                            </ul>
+                        </li>
+
+                    }
                 </ul>
             </div>
         </div><!-- /.navbar-collapse -->
@@ -70,6 +75,7 @@
                     <li><a href="@Url.Action("Index","OperatingSystem")"><span class="glyphicon glyphicon-apple"></span>&nbsp;&nbsp;Operating System</a></li>
                     <li><a href="@Url.Action("Index","Slider")"><span class="fa fa-file-image fa-lg"></span>&nbsp;&nbsp;Slider Images</a></li>
                     <li><a href="@Url.Action("Index","Brands")"><span class="fa fa-mobile fa-lg"></span>&nbsp;&nbsp;Mobile Brands </a></li>
+                    <li><a href="@Url.Action("Index","Contact")"><span class="fa fa-comments fa-lg"></span>&nbsp;&nbsp;Recived Messages </a></li>
                 </ul>
             </div>
         </div>
@@ -98,7 +104,7 @@
     </div>
     <!-------------------------------Script Files-------------------------------------->
     <script src="~/Scripts/jquery-1.10.0.min.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     @RenderSection("myscript", required: false)
