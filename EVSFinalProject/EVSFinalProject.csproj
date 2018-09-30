@@ -110,6 +110,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\close-icone-5671-32.png" />
+    <Content Include="Content\Images\1.png" />
+    <Content Include="Content\Images\img-sprite.png" />
     <Content Include="Content\Images\WhatsApp Image 2018-02-18 at 6.28.29 PM.jpeg" />
     <Content Include="Content\JquerySidebar.css" />
     <Content Include="Content\Light\src\css\lightbox.css" />
@@ -124,6 +126,7 @@
     <Content Include="Content\sb-admin-2.min.css" />
     <Content Include="Content\sins.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\Styles\contact.css" />
     <Content Include="Content\Styles\styles.css" />
     <Content Include="Content\sweetalert.css" />
     <Content Include="Content\fontawsome\css\fa-brands.css" />
@@ -274,7 +277,6 @@
     <Content Include="Views\Admin\AddCity.cshtml" />
     <Content Include="Views\Admin\DeleteCity.cshtml" />
     <Content Include="Views\Admin\OperatingSystem.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\OperatingSystem\Index.cshtml" />
     <Content Include="Views\OperatingSystem\AddOperatingSystem.cshtml" />
     <Content Include="Views\OperatingSystem\DeleteOS.cshtml" />
@@ -302,6 +304,9 @@
     <Content Include="Views\Admin\TotalProduct.cshtml" />
     <Content Include="Views\Admin\_DeleteProduct.cshtml" />
     <Content Include="Views\Product\Empty.cshtml" />
+    <Content Include="Views\Contact\Send.cshtml" />
+    <Content Include="Views\Contact\PostMessage.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
