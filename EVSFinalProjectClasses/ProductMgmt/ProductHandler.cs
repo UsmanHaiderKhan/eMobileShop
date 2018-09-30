@@ -1,10 +1,7 @@
-﻿using System;
+﻿using EVSFinalProjectClasses.UserManagment;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EVSFinalProjectClasses.UserManagment;
 
 namespace EVSFinalProjectClasses.ProductMgmt
 {
@@ -242,6 +239,15 @@ namespace EVSFinalProjectClasses.ProductMgmt
             {
                 db.Entry(mob).State = EntityState.Modified;
                 db.SaveChanges();
+            }
+        }
+
+        public List<Contact> GetAllContacts()
+        {
+            dbcontext db = new dbcontext();
+            using (db)
+            {
+                return (from c in db.Contacts select c).ToList();
             }
         }
     }
