@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<EVSFinalProjectClasses.ProductMgmt.Mobile>
-
 @{
     ViewBag.Title = "TotalProduct";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -7,34 +6,31 @@
 @Html.Partial("~/Views/Admin/_DeleteProduct.cshtml")
 <h2>TotalProduct</h2>
 
-
-<table class="table table-responsive table-condensed table-striped">
-    <tr>
-        <th>
+<table class="table table-responsive table-bordered table-condensed table-striped">
+    <tr style="background: darkcyan;color: white">
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.Images)
         </th>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.Price)
         </th>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.Stock)
         </th>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.Color)
         </th>
-
-        <th>Action</th>
+        <th class="text-center">Action</th>
     </tr>
-
     @foreach (var item in Model)
     {
-        <tr id="row_@item.Id">
+        <tr id="row_@item.Id" class="text-center">
             @foreach (var v in item.Images)
             {
                 <td>
@@ -56,17 +52,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Color)
             </td>
-
             <td>
                 <a href='#modal-id' data-toggle="modal" id="@item.Id" class="hits btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
             </td>
         </tr>
     }
-
 </table>
 <input type="hidden" id="hiddenOrderId" />
 <div style="margin-top: 7%"></div>
-
 @section myscript
 {
     <script type="text/javascript">
@@ -95,4 +88,3 @@
         });
     </script>
 }
-
