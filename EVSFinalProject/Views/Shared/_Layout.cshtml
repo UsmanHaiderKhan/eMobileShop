@@ -17,7 +17,6 @@
 
         gtag('config', 'UA-126546706-1');
     </script>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
@@ -62,7 +61,14 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@Url.Action("PostMessage","Contact")"><span class="fa fa-phone"></span>&nbsp;&nbsp;Contact Us</a></li>
+                        <li>
+                            <a href="#" style="color: white">
+                                <span>
+                                    <img src="~/Content/Images/index.png" style="border-radius: 2px;width: 20px; height: 20px;" />
+                                </span>&nbsp;Temperature is <b><span data-bind="text:main.temp"></span>&deg;F</b>
+                            </a>
+                        </li>
+                        <li><a href="@Url.Action("PostMessage", "Contact")"><span class="fa fa-phone"></span>&nbsp;&nbsp;Contact Us</a></li>
                         @if (currentuser != null && currentuser.IsInRole(WebUtils.Admin))
                         {
                             <li>@Html.ActionLink("Go To Admin Panal", "dashBoard", "Admin", null, new { style = "color:white" })</li>
@@ -73,10 +79,10 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user" style="color: whitesmoke"></span>&nbsp;User Info<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#"> <span class="glyphicon glyphicon-user"></span> @currentuser.FullName</a></li>
-                                    <li><a href="@Url.Action("changepassword","Contact",new{id=currentuser.Id})"><span class="fa fa-lock"></span> &nbsp;Change Password</a></li>
-                                    <li><a href="@Url.Action("UserSetting","Users",new{id=currentuser.Id})"><span class="fa fa-cog"></span>&nbsp; User Profile Setting</a></li>
+                                    <li><a href="@Url.Action("changepassword", "Contact", new {id = currentuser.Id})"><span class="fa fa-lock"></span> &nbsp;Change Password</a></li>
+                                    <li><a href="@Url.Action("UserSetting", "Users", new {id = currentuser.Id})"><span class="fa fa-cog"></span>&nbsp; User Profile Setting</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="@Url.Action("Logout","Users")"><span class="fa fa-sign-out-alt"></span>&nbsp; Logout</a></li>
+                                    <li><a href="@Url.Action("Logout", "Users")"><span class="fa fa-sign-out-alt"></span>&nbsp; Logout</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -86,10 +92,10 @@
                         else if (currentuser == null)
                         {
                             <li>
-                                <a href="@Url.Action("Login","Users")"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a>
+                                <a href="@Url.Action("Login", "Users")"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a>
                             </li>
                             <li>
-                                <a href="@Url.Action("SignUp","Users")"><span class="fa fa-user-plus"></span>&nbsp;Signup</a>
+                                <a href="@Url.Action("SignUp", "Users")"><span class="fa fa-user-plus"></span>&nbsp;Signup</a>
                             </li>
                         }
                     </ul>
