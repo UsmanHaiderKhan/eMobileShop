@@ -26,7 +26,6 @@
                     <label>Email</label>
                     @Html.TextBoxFor(m => m.Loginid, new { @class = "form-control", placeholder = "Enter Valid Email" })
                     <br />
-
                     <div style="text-align: center;"> @Html.ValidationMessageFor(m => m.Loginid, null, new { style = "color :red" }) </div>
                 </div>
 
@@ -34,15 +33,14 @@
                     <label>Password</label>
                     @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Enter Your Password", type = "password" })
                     <br />
-
                     <div style="text-align: center;">@Html.ValidationMessageFor(m => m.Password, null, new { style = "color :red" })</div>
                 </div>
 
-                <div class="col-lg-1">
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                </div>
                 <div>
-                    <label for="remenberme" style="color: black;">Remember me</label>
+                    <input type="checkbox" style="display: inline; width: auto" />
+                    <lablel style="display: inline"> Remember Me</lablel>
+                    @*<input type="checkbox" style="float: left" />
+                        <label for="remenberme" style="width: 0px; margin-right: 0%">Remember me</label>*@
                 </div>
 
 
@@ -64,8 +62,6 @@
             </div>
         </div>
     </div>
-
-
     <script src="~/Scripts/jquery-1.10.0.min.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/sweetalert.min.js"></script>
