@@ -2,6 +2,10 @@
 @using EVSFinalProject.Models
 @using EVSFinalProjectClasses
 @{
+    /**/
+
+    /**/
+
     ViewBag.Title = "ViewCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ShoppingCart cart = (ShoppingCart)Session[WebUtils.Cart];
@@ -36,13 +40,11 @@
                             <a href="/Cart/Update/@cItem.Id" class="btn btn-xs btn-success"><span class="fa fa-edit"></span></a>
                         </td>
                     </tr>
-
-
                 }
             }
         </tbody>
     </table>
-    @if (cart == null && cart.NumberOfItems == 0)
+    @if (cart == null || cart.NumberOfItems == 0)
     {
         <h5>You Can Shop any Thing First Some Products in to the Cart</h5>
         <a href="@Url.Action("Index","Home")" class="btn btn-primary"><span class="fa fa-home"></span>&nbsp;Home</a>
