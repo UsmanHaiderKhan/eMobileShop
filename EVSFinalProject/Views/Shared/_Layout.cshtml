@@ -28,6 +28,9 @@
     <link href="~/Content/Light/src/css/lightbox.css" rel="stylesheet" />
     <link href="~/Content/Styles/styles.css" rel="stylesheet" />
     <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js"></script>
 </head>
 <body>
     <header>
@@ -86,7 +89,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <img src="/Content/Images/@Url.Content(currentuser.ImageUrl)" style="width: 50px; height: 50px;" class="img-responsive img-circle" />
+                                <img src="/Content/Images/@Url.Content(currentuser.ImageUrl)" style="width:40px; height: 40px; margin-top: 18%" class="img-responsive img-circle" />
                             </li>
                         }
                         else if (currentuser == null)
@@ -179,7 +182,18 @@
                 $(this).parents("#proditem").fadeIn(300);
 
             });
-        })
+        });
+        var weather = Object();
+        $(document).ready(function () {
+
+            $.get("@Url.Action("GetWeather","Home")", function (response) {
+                console.log(response);
+                weather = ko.mapping.fromJS(response);
+                ko.applyBindings(weather);
+
+
+            });
+        });
     </script>
     @RenderSection("myscript", required: false)
 </body>
