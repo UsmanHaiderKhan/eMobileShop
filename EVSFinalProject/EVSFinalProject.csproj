@@ -111,7 +111,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\close-icone-5671-32.png" />
     <Content Include="Content\Images\1.png" />
+    <Content Include="Content\Images\cold.png" />
     <Content Include="Content\Images\img-sprite.png" />
+    <Content Include="Content\Images\index.png" />
+    <Content Include="Content\Images\thermometer %281%29.png" />
+    <Content Include="Content\Images\thermometer.png" />
     <Content Include="Content\Images\WhatsApp Image 2018-02-18 at 6.28.29 PM.jpeg" />
     <Content Include="Content\JquerySidebar.css" />
     <Content Include="Content\Light\src\css\lightbox.css" />
@@ -193,16 +197,24 @@
     <Content Include="Content\fontawsome\webfonts\fa-solid-900.ttf" />
     <Content Include="Content\fontawsome\webfonts\fa-solid-900.woff" />
     <Content Include="Content\fontawsome\webfonts\fa-solid-900.woff2" />
+    <Content Include="libman.json" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Scripts\jquery-1.10.0.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.0.js" />
-    <Content Include="Scripts\jquery-1.10.0.min.js" />
-    <Content Include="Scripts\jquery-1.10.0.min.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\notify.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\sweetalert.js" />
@@ -235,6 +247,7 @@
     <Compile Include="Models\ProductSummeryModel.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\ShoppingCartItems.cs" />
+    <Compile Include="Models\Weather.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
