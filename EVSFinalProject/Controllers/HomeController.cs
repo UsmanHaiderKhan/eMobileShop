@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Web.Mvc;
-using EVSFinalProject.Models;
+﻿using EVSFinalProject.Models;
 using EVSFinalProjectClasses.ProductMgmt;
 using EVSFinalProjectClasses.UserManagment;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace EVSFinalProject.Controllers
 {
@@ -48,6 +47,12 @@ namespace EVSFinalProject.Controllers
         public ActionResult WellCome()
         {
             return View();
+        }
+        public JsonResult GetWeather()
+        {
+            Weather weather = new Weather();
+            return Json(weather.GetWeatherForcast(), JsonRequestBehavior.AllowGet);
+
         }
     }
 }
