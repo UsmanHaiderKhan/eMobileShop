@@ -114,6 +114,7 @@
     <Content Include="Content\Images\cold.png" />
     <Content Include="Content\Images\img-sprite.png" />
     <Content Include="Content\Images\index.png" />
+    <Content Include="Content\Images\Spinner-1s-200px.gif" />
     <Content Include="Content\Images\thermometer %281%29.png" />
     <Content Include="Content\Images\thermometer.png" />
     <Content Include="Content\Images\WhatsApp Image 2018-02-18 at 6.28.29 PM.jpeg" />
