@@ -106,7 +106,13 @@
             </div><!-- /.container-fluid -->
         </nav>
     </header>
-    <div class="container-fluid">
+    @*<div class="pre-defined">
+            <img src="/Content/Images/Spinner-1s-200px.gif" />
+        </div>*@
+    <div id="overlay">
+        <div class="spinner"></div>
+    </div>
+    <div class="container-fluid content">
         @RenderBody()
     </div>
     <div class="nav navbar-inverse navbar-fixed-bottom">
@@ -126,8 +132,10 @@
         </div>
     </div>
     <!-------------------------------Script Files-------------------------------------->
-    <script src="~/Scripts/jquery-1.10.0.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/notify.min.js"></script>
     <script src="~/Content/Light/src/js/lightbox.js"></script>
     <script type="text/javascript">
@@ -194,6 +202,25 @@
 
             });
         });
+        var overlay = document.getElementById("overlay");
+
+        window.addEventListener('load',
+            function() {
+                overlay.style.display = 'none';
+            });
+        //$(document).ready(function() {
+        //    $('.pre-defined').fadeOut(2000,
+        //        function() {
+        //            $('.content').fadeIn(1000);
+        //        });
+        //window.addEventListener('', function() {
+        //    const loader = document.querySelector(".pre-defined");
+        //    loader.className += "hidden";
+        //})
+
+
+
+
     </script>
     @RenderSection("myscript", required: false)
 </body>
