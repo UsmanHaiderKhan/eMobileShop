@@ -3,6 +3,8 @@
 @using EVSFinalProjectClasses.ProductMgmt
 @using EVSFinalProjectClasses.UserManagment
 @{
+    /**/
+
     User currentuser = (User)Session[WebUtils.Current_User];
     List<SelectListItem> categories = ModelHelper.ToSelectItemList(new ProductHandler().GetBrands());
 }
@@ -109,9 +111,9 @@
     @*<div class="pre-defined">
             <img src="/Content/Images/Spinner-1s-200px.gif" />
         </div>*@
-    <div id="overlay">
-        <div class="spinner"></div>
-    </div>
+    @*<div id="overlay">
+            <div class="spinner"></div>
+        </div>*@
     <div class="container-fluid content">
         @RenderBody()
     </div>
@@ -202,12 +204,13 @@
 
             });
         });
-        var overlay = document.getElementById("overlay");
+        //var overlay = document.getElementById("overlay");
 
-        window.addEventListener('load',
-            function() {
-                overlay.style.display = 'none';
-            });
+        //window.addEventListener('load',
+        //    function() {
+        //        overlay.style.display = 'none';
+        //    });
+
         //$(document).ready(function() {
         //    $('.pre-defined').fadeOut(2000,
         //        function() {
