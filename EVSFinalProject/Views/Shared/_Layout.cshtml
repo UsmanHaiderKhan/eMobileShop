@@ -108,12 +108,7 @@
             </div><!-- /.container-fluid -->
         </nav>
     </header>
-    @*<div class="pre-defined">
-            <img src="/Content/Images/Spinner-1s-200px.gif" />
-        </div>*@
-    @*<div id="overlay">
-            <div class="spinner"></div>
-        </div>*@
+
     <div class="container-fluid content">
         @RenderBody()
     </div>
@@ -193,6 +188,8 @@
 
             });
         });
+
+
         var weather = Object();
         $(document).ready(function () {
 
@@ -204,22 +201,7 @@
 
             });
         });
-        //var overlay = document.getElementById("overlay");
 
-        //window.addEventListener('load',
-        //    function() {
-        //        overlay.style.display = 'none';
-        //    });
-
-        //$(document).ready(function() {
-        //    $('.pre-defined').fadeOut(2000,
-        //        function() {
-        //            $('.content').fadeIn(1000);
-        //        });
-        //window.addEventListener('', function() {
-        //    const loader = document.querySelector(".pre-defined");
-        //    loader.className += "hidden";
-        //})
 
 
 
