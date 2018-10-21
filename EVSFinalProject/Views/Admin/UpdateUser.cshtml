@@ -1,12 +1,9 @@
 ﻿@model EVSFinalProjectClasses.UserManagment.User
-
 @{
     ViewBag.Title = "UpdateUser";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <h2>UpdateUser</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -21,7 +18,6 @@
                 @Html.ValidationMessageFor(model => model.LoginId, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Email)
             <div>
@@ -29,7 +25,6 @@
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Password)
             <div>
@@ -37,7 +32,6 @@
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.ConfirmPassword)
             <div>
@@ -45,7 +39,6 @@
                 @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.FullName)
             <div>
@@ -53,7 +46,6 @@
                 @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Country)
             <div>
@@ -61,7 +53,15 @@
                 @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Role.Id)
+            <div>
+                @Html.TextBoxFor(model => model.Role.Id, null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Role.Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
     </div>
+
     <div class="col-lg-6">
         <div class="form-group">
             @Html.LabelFor(model => model.ImageUrl)
@@ -70,7 +70,6 @@
                 @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.IsActive)
             <div>
@@ -78,7 +77,6 @@
                 @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.BirthDate)
             <div>
@@ -86,7 +84,6 @@
                 @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.SecurityAnswer)
             <div>
@@ -94,7 +91,6 @@
                 @Html.ValidationMessageFor(model => model.SecurityAnswer, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.SecurityQuestion)
             <div>
@@ -109,20 +105,11 @@
                 @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Gender.Name)
             <div>
                 @Html.TextBoxFor(model => model.Gender.Name, null, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Gender.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Role.Id)
-            <div>
-                @Html.TextBoxFor(model => model.Role.Id, null, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Role.Id, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
@@ -134,9 +121,8 @@
     </div>
 
 }
-
 <div>
-    @Html.ActionLink("Back to List", "Customer")
+    <a href="@Url.Action("Customer","Admin")" class="btn btn-default"><span class="fa fa-arrow-circle-left"></span>&nbsp; &nbsp;Move Back</a>
 </div>
 <br /><br />
 <br /><br />
