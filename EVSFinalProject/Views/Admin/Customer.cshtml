@@ -5,26 +5,25 @@
 }
 <link href="~/Content/UserCard.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 @foreach (var v in Model)
 {
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="imgbox" style="margin-left: -15%;padding: 3%">
-            <img src="~/Content/Images/@Url.Content(v.ImageUrl)" alt="@v.FullName" style="width:270px;height:330px" class="img-responsive img-thumbnail">
-            <a href="@Url.Action("UserDetails","Admin",new {id=v.Id})" id="aaa" class="btn btn-primary btn-link">View Detail&nbsp;&nbsp;<span class="fa fa-eye"></span></a>
-            <h5 style="font-size: 20px;color: aqua">@v.FullName</h5>
-            <ul>
-                <li><a href=""><i class="fa fa-whatsapp"></i></a></li>
-                <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                <li><a href=""><i class="fa fa-twitter-square"></i></a></li>
-                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                <li><a href=""><i class="fa fa-instagram"></i></a></li>
-                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+    <div class="col-md-3 col-sm-6">
+        <div class="our-team">
+            <div class="pic">
+                <img src="~/Content/Images/@Url.Content(v.ImageUrl)" alt="">
+            </div>
+            <div class="team-content">
+                <h3 class="title">@v.FullName</h3>
+                <span class="post"><a href="@Url.Action("UserDetails","Admin",new {id=v.Id})" id="aaa" class="btn-pink">View Detail&nbsp;&nbsp;<span class="fa fa-eye"></span></a></span>
+            </div>
+            <ul class="social">
+                <li><a href="" class="fa fa-facebook"></a></li>
+                <li><a href="" class="fa fa-google-play"></a></li>
+                <li><a href="" class="fa fa-twitter"></a></li>
+                <li><a href="" class="fa fa-linkedin"></a></li>
+                <li><a href="" class="fa fa-instagram"></a></li>
             </ul>
         </div>
     </div>
 }
-
-
-
+@**@
