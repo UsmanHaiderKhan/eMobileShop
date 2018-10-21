@@ -1,4 +1,4 @@
-* {
+﻿* {
     box-sizing: border-box;
 }
 
@@ -33,7 +33,7 @@ html {
 }
 
 .top-section {
-    background: #3b5999;
+    background: #eb1768;
     height: 160px;
     border-radius: 4px 4px 0 0;
 }
@@ -109,4 +109,13 @@ a {
     text-decoration: none;
     margin: 0 8px;
     color: #B0B0B0;
+}
+
+.btn-pink {
+    background: #ee4266;
+    color: white;
+    padding: 5px;
+    border: 2px solid #eb1768;
+    border-radius: 21px;
+    margin-top: 13%;
 }
