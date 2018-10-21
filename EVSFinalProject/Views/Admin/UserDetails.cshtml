@@ -11,9 +11,6 @@
 <link href="~/Content/Userdetail.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 @Html.Partial("~/Views/Admin/_DeleteUserDetails.cshtml")
-
-
-
 <div class="card" style="margin-left: -7%">
     <div class="top-section">
     </div>
@@ -24,18 +21,15 @@
 
 
     }
-
     <div class="bottom-section">
         @foreach (var b in Model)
         {
             <h3 style="font-family: fantasy">@b.FullName</h3>
         }
-
         <table class="table table-condensed table-hover table-striped table-responsive" style="float: right">
             <thead>
-                <tr class="bg-primary text-center">
+                <tr class="text-center" style="background-color: #eb1768;color: white">
                     <th>IsActive</th>
-
                     <th>FullName</th>
                     <th>LoginId</th>
                     <th>Password</th>
@@ -45,7 +39,6 @@
                     <th>SecurityAnswer</th>
                     <th>Roles</th>
                     <th>Action</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -70,8 +63,7 @@
                 }
             </tbody>
         </table>
-
-        <a href="@Url.Action("Customer","Admin")" style="color: aliceblue" class="btn btn-primary  btn-link">
+        <a href="@Url.Action("Customer","Admin")" style="color: aliceblue" class="btn-pink">
             <span class="fa fa-angle-double-left fa-lg"></span>&nbsp;&nbsp;Back to list
         </a>
         <div class="social-media" style="color: crimson">
@@ -179,10 +171,3 @@
 
     </script>
 }
-
-
-
-
-
-
-
