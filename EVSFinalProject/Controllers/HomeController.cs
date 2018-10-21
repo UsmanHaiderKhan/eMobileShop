@@ -48,11 +48,11 @@ namespace EVSFinalProject.Controllers
         {
             return View();
         }
-        public JsonResult GetWeather()
-        {
-            Weather weather = new Weather();
-            return Json(weather.GetWeatherForcast(), JsonRequestBehavior.AllowGet);
+        //public JsonResult GetWeather()
+        //{
+        //    Weather weather = new Weather();
+        //    return Json(weather.GetWeatherForcast(), JsonRequestBehavior.AllowGet);
 
-        }
+        //}
     }
 }
