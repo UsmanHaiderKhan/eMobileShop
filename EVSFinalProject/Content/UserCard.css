@@ -178,7 +178,7 @@ body {
     }
 
     .our-team:hover .pic img {
-        box-shadow: 0 0 0 6px #f7f5ec;
+        box-shadow: 0 0 0 2px #f7f5ec;
         transform: scale(.8);
     }
 
@@ -243,4 +243,10 @@ body {
     padding: 5px;
     border: 2px solid #eb1768;
     border-radius: 21px;
+    font-size: .9rem;
+    text-decoration: none !important;
 }
+
+    .btn-pink:hover {
+        color: white;
+    }
