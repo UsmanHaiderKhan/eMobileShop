@@ -129,5 +129,7 @@ namespace EVSFinalProject.Controllers
                 return (from c in db.Countries select c).Count();
             }
         }
+
+
     }
 }
