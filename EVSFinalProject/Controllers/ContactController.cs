@@ -29,7 +29,7 @@ namespace EVSFinalProject.Controllers
         {
             dbcontext db = new dbcontext();
             var request = Request["g-recaptcha-response"];
-            var screteKey = "6Le8XXgUAAAAACSqB6TP31I8bAkha0uYiGfZvYi7";
+            var screteKey = "6Lc1ZXgUAAAAACzrkCEPtHRPL6fl7qR49rNBApN9";
             var client = new WebClient();
 
             using (db)
