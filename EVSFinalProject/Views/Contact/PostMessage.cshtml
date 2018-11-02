@@ -38,10 +38,12 @@
                 <h3>Message</h3>
                 @Html.TextAreaFor(m => m.Message, new { placeholder = "Write Your Message" })
             </div>
+
             <div class="agile1">
-                <div id="captchaid" data-sitekey="6Le8XXgUAAAAABllR600s74QtfbJQxowEmXTqjbs"></div>
+                <div class="g-recaptcha" id="captchaid" data-sitekey="6Lc1ZXgUAAAAABiX0pdDgkPOU0tcv0S2njlsqVpA"></div>
                 <input type="text" id="captchatext" style="display: none" required />
             </div>
+
             <button class="btn btn-default" type="submit">Send Meesage &nbsp;<i class="fa fa-paper-plane fa-lg"></i></button>
         }
     </div>
@@ -77,3 +79,4 @@
     </div>
     <div class="clear"></div>
 </div>
+<script src='https://www.google.com/recaptcha/api.js'></script>
