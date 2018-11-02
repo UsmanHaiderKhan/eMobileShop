@@ -19,19 +19,20 @@
 
         gtag('config', 'UA-126546706-1');
     </script>
-    <script src='https://www.google.com/recaptcha/api.js?render=6LdBUXgUAAAAADuUPaScWe_ym2xCcf-Ce7Np93e2'></script>
-    <script>
-        var onloadCallBack = function () {
-            grecaptcha.render('captchaid',
-                {
-                    'sitekey': '6LdBUXgUAAAAADuUPaScWe_ym2xCcf-Ce7Np93e2',
-                    'callback': function (response) {
-                        $('#captchatext').val('t');
-                    }
 
-                });
-        }
-    </script>
+    @*<script src='https://www.google.com/recaptcha/api.js?render=6LdBUXgUAAAAADuUPaScWe_ym2xCcf-Ce7Np93e2'></script>*@
+    @*<script>
+            var onloadCallBack = function () {
+                grecaptcha.render('captchaid',
+                    {
+                        'sitekey': '6LdBUXgUAAAAADuUPaScWe_ym2xCcf-Ce7Np93e2',
+                        'callback': function (response) {
+                            $('#captchatext').val('t');
+                        }
+
+                    });
+            }
+        </script>*@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
