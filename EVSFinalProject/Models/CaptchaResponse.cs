@@ -7,7 +7,7 @@ namespace EVSFinalProject.Models
     {
         [JsonProperty("success")]
         public bool Success { get; set; }
-        [JsonProperty("eroor-code")]
+        [JsonProperty("eroor-codes")]
         public List<string> EroorCode { get; set; }
     }
 }
