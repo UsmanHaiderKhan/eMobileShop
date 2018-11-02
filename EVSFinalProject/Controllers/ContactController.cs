@@ -3,6 +3,7 @@ using EVSFinalProjectClasses.UserManagment;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 
 namespace EVSFinalProject.Controllers
@@ -27,6 +28,10 @@ namespace EVSFinalProject.Controllers
         public ActionResult PostMessage(Contact contact)
         {
             dbcontext db = new dbcontext();
+            var request = Request["g-recaptcha-response"];
+            var screteKey = "6Le8XXgUAAAAACSqB6TP31I8bAkha0uYiGfZvYi7";
+            var client = new WebClient();
+
             using (db)
             {
                 db.Contacts.Add(contact);
