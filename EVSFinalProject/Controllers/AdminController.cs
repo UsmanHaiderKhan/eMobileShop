@@ -37,7 +37,7 @@ namespace EVSFinalProject.Controllers
         {
             User user1 = (User)Session[WebUtils.Current_User];
             if (!(user1 != null && user1.IsInRole(WebUtils.Admin)))
-                return RedirectToAction("Login", "Users", new { ctl = "Slider", act = "AddImages" });
+                return RedirectToAction("Login", "Users", new { ctl = "Admin", act = "UserDetails" });
 
             UserHandler user = new UserHandler();
             List<User> u = user.GetUser();
