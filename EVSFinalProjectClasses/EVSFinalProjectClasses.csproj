@@ -48,39 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201807041407521_InitialCreate.cs" />
-    <Compile Include="Migrations\201807041407521_InitialCreate.Designer.cs">
-      <DependentUpon>201807041407521_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807041510131_MobileRelaseDate.cs" />
-    <Compile Include="Migrations\201807041510131_MobileRelaseDate.Designer.cs">
-      <DependentUpon>201807041510131_MobileRelaseDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807171519052_MobileStock.cs" />
-    <Compile Include="Migrations\201807171519052_MobileStock.Designer.cs">
-      <DependentUpon>201807171519052_MobileStock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807191453393_UpdateMobileId.cs" />
-    <Compile Include="Migrations\201807191453393_UpdateMobileId.Designer.cs">
-      <DependentUpon>201807191453393_UpdateMobileId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807191530226_UpdateMobileOS.cs" />
-    <Compile Include="Migrations\201807191530226_UpdateMobileOS.Designer.cs">
-      <DependentUpon>201807191530226_UpdateMobileOS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807191535513_RemoveMobileOSsProperty.cs" />
-    <Compile Include="Migrations\201807191535513_RemoveMobileOSsProperty.Designer.cs">
-      <DependentUpon>201807191535513_RemoveMobileOSsProperty.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809251932177_contacttbl.cs" />
-    <Compile Include="Migrations\201809251932177_contacttbl.Designer.cs">
-      <DependentUpon>201809251932177_contacttbl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809251959255_MakeTbl.cs" />
-    <Compile Include="Migrations\201809251959255_MakeTbl.Designer.cs">
-      <DependentUpon>201809251959255_MakeTbl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductMgmt\CartItem.cs" />
     <Compile Include="ProductMgmt\Contact.cs" />
     <Compile Include="ProductMgmt\Mobile.cs" />
@@ -105,32 +72,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807041407521_InitialCreate.resx">
-      <DependentUpon>201807041407521_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807041510131_MobileRelaseDate.resx">
-      <DependentUpon>201807041510131_MobileRelaseDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807171519052_MobileStock.resx">
-      <DependentUpon>201807171519052_MobileStock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807191453393_UpdateMobileId.resx">
-      <DependentUpon>201807191453393_UpdateMobileId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807191530226_UpdateMobileOS.resx">
-      <DependentUpon>201807191530226_UpdateMobileOS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807191535513_RemoveMobileOSsProperty.resx">
-      <DependentUpon>201807191535513_RemoveMobileOSsProperty.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809251932177_contacttbl.resx">
-      <DependentUpon>201809251932177_contacttbl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809251959255_MakeTbl.resx">
-      <DependentUpon>201809251959255_MakeTbl.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
