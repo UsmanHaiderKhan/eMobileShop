@@ -1,6 +1,16 @@
 ﻿body {
 }
 
+#drop-text li a {
+    color: rgba(0, 0, 0, .8) !important;
+    font-size: 16px;
+    font-family: 'Aspira Demi';
+}
+
+
+/* Nav bar Styling */
+
+
 @font-face {
     font-family: 'BarlowCondensed-Black';
     src: url('vendor/fonts/BarlowCondensed-Black.otf') format('opentype');
@@ -75,6 +85,13 @@
 
 .content-setting {
     padding: 236px 0;
+}
+
+.content-position {
+    position: absolute;
+    bottom: 105px;
+    left: 0%;
+    transform: translateY(-50%);
 }
 
 /*  Product Section Styling */
@@ -281,9 +298,43 @@ menu li {
         margin-top: 15%;
     }
 }
-/*menu li::after {
-        content: " |";
-    }*/
 
-/*menu li:last-of-type::after {
-        content: "";
+
+/* User Profile Setting */
+.profile-text {
+    font-size: 36px;
+    color: darkslategrey;
+    text-align: center;
+    font-family: 'Aspira Demi';
+}
+
+.img-setting {
+    top: 0;
+    height: 176px;
+    width: 176px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.fileUpload {
+    height: 176px;
+    width: 176px;
+    font-size: 74px;
+    border-radius: 50%;
+    color: rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.upload {
+    position: absolute;
+    top: -2px;
+    left: 16px;
+    margin: 0;
+    padding: 0px;
+    font-size: 2em;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    box-sizing: content-box;
+    width: 197px;
+}
