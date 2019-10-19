@@ -1,4 +1,7 @@
 ﻿body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 #drop-text li a {
@@ -7,10 +10,10 @@
     font-family: 'Aspira Demi';
 }
 
-
+.dropdown .nav-item .nav-link {
+    color: #000 !important;
+}
 /* Nav bar Styling */
-
-
 @font-face {
     font-family: 'BarlowCondensed-Black';
     src: url('vendor/fonts/BarlowCondensed-Black.otf') format('opentype');
@@ -171,13 +174,16 @@ table {
     }
 
     table tr:hover {
-        background-color: red;
+        background-color: #dc2743;
     }
 
 
     table:hover {
-        box-shadow: 20px 20px 1px gray;
-        background-color: yellow;
+        background-color: #6e134b;
+        background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
     }
 
 /* Product Section styling*/
@@ -337,4 +343,17 @@ menu li {
     filter: alpha(opacity=0);
     box-sizing: content-box;
     width: 197px;
+}
+
+
+/*Footer Styling*/
+
+.footer-bg {
+    background: rgba(0, 0, 0, .8);
+    color: #000;
+    padding: 2em;
+}
+
+#footer h4, a, i, p, h6 {
+    color: white !important;
 }
