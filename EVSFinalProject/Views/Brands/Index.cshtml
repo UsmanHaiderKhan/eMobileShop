@@ -13,30 +13,33 @@
 <p>
     @Html.ActionLink("Add New", "AddBrands")
 </p>
-<table class="table table-condensed table-hover table-striped table-responsive" style="float: right">
-    <thead>
-        <tr class="bg-primary text-center">
-            <th>Id</th>
-            <th>Name</th>
-            <th>Banner</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var u in (List<MobileBrand>)ViewBag.MobBrands)
-        {
-            <tr id="row_@u.Id">
-                <td>@u.Id</td>
-                <td>@u.Name</td>
-                <td><img src="~/Content/Banners/@Url.Content(u.ImageUrl)" alt="No Image" style="width:60px;height :60px" class="img-responsive img-thumbnail" /></td>
-                <td>
-                    <a href="#modal-ids" data-toggle="modal" id="@u.Id" class="hits btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
-                    <a href="#modal-id" data-toggle="modal" class="btn btn-xs btn-success editbtn" data-id="@u.Id" data-name="@u.Name"><span class="glyphicon glyphicon-edit"></span></a>
-                </td>
+<div class="table-responsive">
+    <table class="table table-hover table-striped " style="float: right">
+        <thead class="bg-dark text-white text-center">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Banner</th>
+                <th>Action</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody class="text-center">
+            @foreach (var u in (List<MobileBrand>)ViewBag.MobBrands)
+            {
+                <tr id="row_@u.Id">
+                    <td>@u.Id</td>
+                    <td>@u.Name</td>
+                    <td><img src="~/Content/Banners/@Url.Content(u.ImageUrl)" alt="No Image" style="width:60px;height :60px" class="img-fluid img-thumbnail" /></td>
+                    <td>
+                        <a href="#modal-ids" data-toggle="modal" id="@u.Id" class="hits btn btn-sm btn-danger"><span class="fa fa-trash-alt"></span></a>
+                        <a href="#modal-id" data-toggle="modal" class="btn btn-sm btn-success editbtn" data-id="@u.Id" data-name="@u.Name"><span class="fa fa-edit"></span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 <input type="hidden" id="hiddenOrderId" />
 @section myscript{
     <script type="text/javascript">
