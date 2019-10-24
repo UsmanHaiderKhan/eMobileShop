@@ -3,27 +3,29 @@
     ViewBag.Title = "User";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<link href="~/Content/fontawsome/css/fontawesome-all.css" />
 <link href="~/Content/UserCard.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-@foreach (var v in Model)
-{
-    <div class="col-md-3 col-sm-6">
-        <div class="our-team">
-            <div class="pic">
-                <img src="~/Content/Images/@Url.Content(v.ImageUrl)" alt="">
+<div class="row mt-3">
+    @foreach (var v in Model)
+    {
+        <div class="col-md-3 col-sm-6">
+            <div class="our-team">
+                <div class="pic">
+                    <img src="~/Content/Images/@Url.Content(v.ImageUrl)" alt="">
+                </div>
+                <div class="team-content">
+                    <h3 class="title">@v.FullName</h3>
+                    <span class="post"><a href="@Url.Action("UserDetails","Admin",new {id=v.Id})" id="aaa" class="btn-pink">View Detail&nbsp;&nbsp;<span class="fa fa-eye"></span></a></span>
+                </div>
+                <ul class="social">
+                    <li><a href="" class="fab fa-facebook"></a></li>
+                    <li><a href="" class="fab fa-google-plus-g"></a></li>
+                    <li><a href="" class="fab fa-twitter"></a></li>
+                    <li><a href="" class="fab fa-linkedin"></a></li>
+                    <li><a href="" class="fab fa-instagram"></a></li>
+                </ul>
             </div>
-            <div class="team-content">
-                <h3 class="title">@v.FullName</h3>
-                <span class="post"><a href="@Url.Action("UserDetails","Admin",new {id=v.Id})" id="aaa" class="btn-pink">View Detail&nbsp;&nbsp;<span class="fa fa-eye"></span></a></span>
-            </div>
-            <ul class="social">
-                <li><a href="" class="fa fa-facebook"></a></li>
-                <li><a href="" class="fa fa-google-plus-g"></a></li>
-                <li><a href="" class="fa fa-twitter"></a></li>
-                <li><a href="" class="fa fa-linkedin"></a></li>
-                <li><a href="" class="fa fa-instagram"></a></li>
-            </ul>
         </div>
-    </div>
-}
+    }
+</div>
 @**@

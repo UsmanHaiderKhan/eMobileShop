@@ -10,33 +10,36 @@
 <p>
     @Html.ActionLink("Add New", "AddCity", new { id = ViewBag.countryId })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            Country Name
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @ViewBag.countryName
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "DeleteCity", new { id = item.Id, countryId = ViewBag.countryId })
-            </td>
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <tr class="bg-dark text-white">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                Country Name
+            </th>
+            <th>Action</th>
         </tr>
-    }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @ViewBag.countryName
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteCity", new { id = item.Id, countryId = ViewBag.countryId })
+                </td>
+            </tr>
+        }
 
 
-</table>
+    </table>
+</div>
+
 
 <p>@Html.ActionLink("Back To List", "Index", "Admin")</p>

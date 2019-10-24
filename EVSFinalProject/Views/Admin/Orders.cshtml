@@ -6,42 +6,45 @@
     int qty = 0;
 }
 @Html.Partial("~/Views/Admin/_DeleteOrders.cshtml")
-<table class="table table-responsive table-condensed">
-    <thead>
-        <tr class="bg-primary">
-            <th>Buyer Name</th>
-            <th>Phone</th>
-            <th>FullAddress</th>
-            <th>IsActive</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var v in Model)
-        {
-            <tr id="row_@v.Id">
-                <td>@v.BuyerName</td>
-                <td>@v.Phone</td>
-                <td>@v.FullAddress</td>
-                <td>@v.IsActive</td>
-                @foreach (var b in v.CartItems)
-                {
-                    price += b.Amount;
-                    qty += b.Qauntity;
-
-                }
-                <td>@price</td>
-                <td>@qty</td>
-                <td>
-                    <a href='#modal-id' data-toggle="modal" id="@v.Id" class="hits btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
-                    <a href="@Url.Action("OrderView","Contact",new {id=v.Id})" id="@v.Id" class="hits btn btn-xs btn-success"><span class="glyphicon glyphicon-eye-open"></span></a>
-                </td>
+<div class="table-responsive">
+    <table class="table  table-condensed">
+        <thead>
+            <tr class="bg-primary">
+                <th>Buyer Name</th>
+                <th>Phone</th>
+                <th>FullAddress</th>
+                <th>IsActive</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var v in Model)
+            {
+                <tr id="row_@v.Id">
+                    <td>@v.BuyerName</td>
+                    <td>@v.Phone</td>
+                    <td>@v.FullAddress</td>
+                    <td>@v.IsActive</td>
+                    @foreach (var b in v.CartItems)
+                    {
+                        price += b.Amount;
+                        qty += b.Qauntity;
+
+                    }
+                    <td>@price</td>
+                    <td>@qty</td>
+                    <td>
+                        <a href='#modal-id' data-toggle="modal" id="@v.Id" class="hits btn btn-xs btn-danger"><span class="fa fa-trash"></span></a>
+                        <a href="@Url.Action("OrderView","Contact",new {id=v.Id})" id="@v.Id" class="hits btn btn-xs btn-success"><span class="fa fa-eye"></span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 <input type="hidden" id="hiddenOrderId" />
 <div style="margin-top: 7%"></div>
 

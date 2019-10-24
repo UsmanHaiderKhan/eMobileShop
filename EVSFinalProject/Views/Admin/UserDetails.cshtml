@@ -8,73 +8,85 @@
     ViewBag.Title = "UserDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<link rel="stylesheet" href="~/Content/fontawsome/css/fontawesome-all.css" />
 <link href="~/Content/Userdetail.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 @Html.Partial("~/Views/Admin/_DeleteUserDetails.cshtml")
-<div class="card" style="margin-left: -7%">
-    <div class="top-section">
-    </div>
-    @foreach (var v in Model)
-    {<div class="avatar">
-            <img src="~/Content/Images/@Url.Content(v.ImageUrl)" style="width: 200px; height: 200px" class="img-responsive" />
-        </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="top-section">
+            </div>
+            @foreach (var v in Model)
+            {<div class="avatar">
+                    <img src="~/Content/Images/@Url.Content(v.ImageUrl)" style="width: 200px; height: 200px" class="img-fluid" />
+                </div>
 
 
-    }
-    <div class="bottom-section">
-        @foreach (var b in Model)
-        {
-            <h3 style="font-family: fantasy">@b.FullName</h3>
-        }
-        <table class="table table-condensed table-hover table-striped table-responsive" style="float: right">
-            <thead>
-                <tr class="text-center" style="background-color: #eb1768;color: white">
-                    <th>IsActive</th>
-                    <th>FullName</th>
-                    <th>LoginId</th>
-                    <th>Password</th>
-                    <th>Email</th>
-                    <th>BirthDate</th>
-                    <th>SecurityQuestion</th>
-                    <th>SecurityAnswer</th>
-                    <th>Roles</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var u in Model)
+            }
+            <div class="bottom-section">
+                @foreach (var b in Model)
                 {
-                    <tr id="row_@u.Id">
-                        <td>@u.IsActive</td>
-                        <td>@u.FullName</td>
-                        <td>@u.LoginId</td>
-                        <td>@u.Password</td>
-                        <td>@u.Email</td>
-                        <td>@u.BirthDate</td>
-                        <td>@u.SecurityQuestion</td>
-                        <td>@u.SecurityAnswer</td>
-                        <td class="col-lg-4">@u.Role.Name</td>
-                        <td class="col-lg-4">
-                            <a href="#modal-ids" data-toggle="modal" id="@u.Id" class="btn btn-xs btn-danger hits"><span class="glyphicon glyphicon-remove"></span></a>
-                            <a href="@Url.Action("UpdateUser","Admin",new{id=u.Id})"
-                               class="btn btn-xs btn-success"><span class="glyphicon glyphicon-edit"></span></a>
-                        </td>
-                    </tr>
+                    <h3 style="font-family: fantasy">@b.FullName</h3>
                 }
-            </tbody>
-        </table>
-        <a href="@Url.Action("Customer","Admin")" style="color: aliceblue" class="btn-pink">
-            <span class="fa fa-angle-double-left fa-lg"></span>&nbsp;&nbsp;Back to list
-        </a>
-        <div class="social-media" style="color: crimson">
-            <a class="fa fa-facebook"></a>
-            <a class="fa fa-google-plus" href="#"></a>
-            <a class="fa fa-twitter-square" href="#"></a>
-            <a class="fa fa-linkedin" href="#"></a>
-            <a class="fa fa-dribbble" href="#"></a>
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr class="text-center" style="background-color: #eb1768;color: white">
+                                <th>IsActive</th>
+                                <th>FullName</th>
+                                <th>LoginId</th>
+                                <th>Password</th>
+                                <th>Email</th>
+                                <th>BirthDate</th>
+                                <th>City</th>
+                                <th>Country</th>
+                                <th>SecurityQuestion</th>
+                                <th>SecurityAnswer</th>
+                                <th>Roles</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var u in Model)
+                            {
+                                <tr id="row_@u.Id">
+                                    <td>@u.IsActive</td>
+                                    <td>@u.FullName</td>
+                                    <td>@u.LoginId</td>
+                                    <td>@u.Password</td>
+                                    <td>@u.Email</td>
+                                    <td>@u.BirthDate</td>
+                                    <td>@u.City.Name</td>
+                                    <td>@u.Country</td>
+                                    <td>@u.SecurityQuestion</td>
+                                    <td>@u.SecurityAnswer</td>
+                                    <td>@u.Role.Name</td>
+                                    <td>
+                                        <a href="#modal-ids" data-toggle="modal" id="@u.Id" class="btn btn-sm btn-danger hits"><span class="fa fa-trash-alt fa-sm"></span></a>
+                                        <a href="@Url.Action("UpdateUser","Admin",new{id=u.Id})"
+                                           class="btn btn-sm btn-success fa-sm"><span class="fa fa-edit"></span></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <a href="@Url.Action("Customer","Admin")" style="color: aliceblue" class="btn-pink">
+                    <span class="fa fa-angle-double-left fa-lg"></span>&nbsp;&nbsp;Back to list
+                </a>
+                <div class="social-media" style="color: crimson">
+                    <a class="fa fa-facebook"></a>
+                    <a class="fa fa-google-plus" href="#"></a>
+                    <a class="fa fa-twitter-square" href="#"></a>
+                    <a class="fa fa-linkedin" href="#"></a>
+                    <a class="fa fa-dribbble" href="#"></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 <input type="hidden" id="hiddenOrderId" />
 @section myscript
 {
