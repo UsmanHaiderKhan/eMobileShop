@@ -7,44 +7,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ShoppingCart cart = (ShoppingCart)Session[WebUtils.Cart];
 }
-<link href="~/Content/fontawsome/css/fontawesome-all.min.css" rel="stylesheet" />
+<link href="~/Content/fontawsome/css/fontawesome-all.css" rel="stylesheet" />
 <h2 class="list-group-item-heading text-center cart">View Cart</h2>
-<div class="col-lg-4 text-center">
-    <h3>Online Shop</h3>
-</div>
-<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
 
-    <table class="table table-bordered table-responsive table-striped table-condensed">
-        <thead>
-            <tr class="bg-primary">
-                <th class="text-center">Image</th>
-                <th class="text-center">Title</th>
-                <th class="text-center">Price</th>
-                <th class="text-center">Quantity</th>
-                <th class="text-center">Total Price</th>
-                <th class="text-center">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (cart != null && cart.NumberOfItems > 0)
-            {
-                foreach (var cItem in cart.Items)
+<div class="col-lg-8 offset-2 col-md-8 col-sm-10 col-xs-12 text-center">
+    <div class="table-responsive">
+        <table class="table table-bordered  table-striped table-condensed">
+            <thead>
+                <tr class="bg-primary">
+                    <th class="text-center">Image</th>
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Total Price</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (cart != null && cart.NumberOfItems > 0)
                 {
-                    <tr class="text-center">
-                        <td><img src="@cItem.ImageUrl" alt="@cItem.Name" class="img-responsive img-thumbnail" style="height:40px; width: 50px" /></td>
-                        <td>@cItem.Name </td>
-                        <td>@cItem.Price</td>
-                        <td><input type="text" disabled="disabled" class="form-control cartqtytxt" style="width:75px" value="@cItem.Quantity" data-pid="@cItem.Id" /></td>
-                        <td>@cItem.Amount</td>
-                        <td>
-                            <a href="@Url.Action("Remove","Cart",new{cItem.Id})" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
-                            <a href="/Cart/Update/@cItem.Id" class="btn btn-xs btn-success"><span class="fa fa-edit"></span></a>
-                        </td>
-                    </tr>
+                    foreach (var cItem in cart.Items)
+                    {
+                        <tr class="text-center">
+                            <td><img src="@cItem.ImageUrl" alt="@cItem.Name" class="img-fluid img-thumbnail" style="height:40px; width: 50px" /></td>
+                            <td>@cItem.Name </td>
+                            <td>@cItem.Price</td>
+                            <td><input type="text" disabled="disabled" class="form-control cartqtytxt" style="width:75px" value="@cItem.Quantity" data-pid="@cItem.Id" /></td>
+                            <td>@cItem.Amount</td>
+                            <td>
+                                <a href="@Url.Action("Remove","Cart",new{cItem.Id})" class="btn btn-sm btn-danger"><span class="fa fa-trash-alt"></span></a>
+                                <a href="/Cart/Update/@cItem.Id" class="btn btn-sm btn-success"><span class="fa fa-edit"></span></a>
+                            </td>
+                        </tr>
+                    }
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
     @if (cart == null || cart.NumberOfItems == 0)
     {
         <h5>You Can Shop any Thing First Some Products in to the Cart</h5>
