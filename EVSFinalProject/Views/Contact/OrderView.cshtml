@@ -5,7 +5,7 @@
 }
 
 <h3 class="text-center" style="color:maroon">View Detail of Customer Order</h3>
-<div class="col-lg-8 col-lg-offset-2">
+<div class="col-lg-8 offset-lg-2">
     <table class="table table-condensed table-responsive table-hover">
         @foreach (var v in Model)
         {
@@ -29,7 +29,7 @@
             {
                 <tr>
                     <th>Product Image</th>
-                    <td><img src="@Url.Content(c.ImageUrl)" style="height:70px;width:70px" class="img-responsive img-thumbnail" /></td>
+                    <td><img src="@Url.Content(c.ImageUrl)" style="height:70px;width:70px" class="img-fluid img-thumbnail" /></td>
                 </tr>
                 <tr>
                     <th>Product Name</th>
@@ -51,5 +51,6 @@
 
     </table>
 </div>
-<br /><br />
+<br />
+<br />
 
