@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace EVSFinalProjectClasses.ProductMgmt
 {
@@ -16,6 +12,7 @@ namespace EVSFinalProjectClasses.ProductMgmt
         public double Phone { get; set; }
 
         public List<CartItem> CartItems { get; set; }
+        public int User_Id { get; set; }
 
     }
 }
