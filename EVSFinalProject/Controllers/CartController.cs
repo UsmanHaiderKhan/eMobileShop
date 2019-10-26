@@ -70,7 +70,7 @@ namespace EVSFinalProject.Controllers
             return (cart == null) ? 0 : cart.NumberOfItems;
         }
 
-        //here we post Our Data 
+        //here we post Our Data
         //[HttpPost]
         //public ActionResult PlaceOrder(FormCollection fm)
         //{
