@@ -146,6 +146,7 @@ namespace EVSFinalProject.Controllers
         [HttpPost]
         public ActionResult PlaceOrder(FormCollection data)
         {
+            User cu = (User)Session[WebUtils.Current_User];
             dbcontext db = new dbcontext();
             PlaceOrder p = new PlaceOrder
             {
@@ -153,8 +154,10 @@ namespace EVSFinalProject.Controllers
                 FullAddress = data["FullAddress"],
                 EmailAddress = data["EmailAddress"],
                 Phone = Convert.ToDouble(data["Phone"]),
+                User_Id = cu.Id,
                 IsActive = false
             };
+
             List<CartItem> cartItems = new List<CartItem>();
             ShoppingCart cart = (ShoppingCart)Session[WebUtils.Cart];
 
@@ -170,6 +173,7 @@ namespace EVSFinalProject.Controllers
                     Amount = i.Amount,
                     MobileId = i.MobileId
                 };
+
                 Mobile bMob = new ProductHandler().GetMobileById(ci.Id);
                 //Mobile mm = (Mobile)new dbcontext().Mobiles.Find(ci.Id);
 
@@ -187,13 +191,10 @@ namespace EVSFinalProject.Controllers
                 db.CartItems.Add(i);
             }
 
-
-
-
             db.PlaceOrders.Add(p);
             db.SaveChanges();
 
-            //Here We Sent the Email 
+            //Here We Sent the Email
             string message = null;
             try
             {
@@ -241,6 +242,7 @@ namespace EVSFinalProject.Controllers
                     }
                     //Session.Clear();
                     Session[WebUtils.Cart] = null;
+
                     return RedirectToAction("Complete");
                 }
             }
@@ -254,16 +256,13 @@ namespace EVSFinalProject.Controllers
 
         }
 
-        //public ActionResult EmailSendToCutomer()
-        //{
-        //    bool result=false;
-        //    result = PlaceOrder(null);
-        //    return Json(result,JsonRequestBehavior.AllowGet);
-        //}
-
         public ActionResult Complete(string msg)
         {
-            ViewBag.msg = msg;
+            User currentuser = (User)Session[WebUtils.Current_User];
+            var userId = currentuser.Id;
+            ProductHandler handler = new ProductHandler();
+            var OrderId = handler.GetOrderIdByUser(userId);
+            ViewBag.msg = OrderId;
             return View();
         }
 
@@ -289,5 +288,20 @@ namespace EVSFinalProject.Controllers
                 return (from c in db.Mobiles select c).Count();
             }
         }
+        public ActionResult TrackOrder()
+        {
+
+            User currentuser = (User)Session[WebUtils.Current_User];
+            var userId = currentuser.Id;
+            ProductHandler handler = new ProductHandler();
+            var OrderId = handler.GetOrderIdByUser(userId);
+            if (userId == OrderId)
+            {
+                var user = handler.GetUserOrders(userId);
+                return View(user);
+            }
+            return View();
+        }
     }
+
 }
