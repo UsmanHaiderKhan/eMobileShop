@@ -2,16 +2,12 @@
 using EVSFinalProjectClasses;
 using EVSFinalProjectClasses.UserManagment;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Mail;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.Mvc;
-using System.Web.Services.Description;
 
 namespace EVSFinalProject.Controllers
 {
@@ -74,6 +70,12 @@ namespace EVSFinalProject.Controllers
                 Session.Add(WebUtils.Current_User, u);
                 string ctl = Request.QueryString["c"];
                 string act = Request.QueryString["a"];
+                if (u.IsInRole(WebUtils.Admin))
+                {
+
+                    return RedirectToAction("index", "Admin");
+                }
+
                 if (!string.IsNullOrEmpty(ctl) && string.IsNullOrEmpty(act))
                 {
                     return RedirectToAction(act, ctl);
@@ -131,7 +133,7 @@ namespace EVSFinalProject.Controllers
                         {
                             string abc = uno + "_" + ++counter +
                                          file.FileName.Substring(file.FileName.LastIndexOf("."));
-                            //dont save the url of the Images Save the 
+                            //dont save the url of the Images Save the
                             string url = "~/Content/Images/" + abc;
                             string path = Request.MapPath(url);
                             u.ImageUrl = abc;
@@ -255,7 +257,7 @@ namespace EVSFinalProject.Controllers
                     {
                         string abc = uno + "_" + ++counter +
                                      file.FileName.Substring(file.FileName.LastIndexOf("."));
-                        //dont save the url of the Images Save the 
+                        //dont save the url of the Images Save the
                         string url = "~/Content/Images/" + abc;
                         string path = Request.MapPath(url);
                         u.ImageUrl = abc;
