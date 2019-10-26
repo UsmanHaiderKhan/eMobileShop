@@ -6,123 +6,127 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-center" style="margin-top: 5%">Specifications</h2>
+<h2 class="text-center mt-5">Specifications</h2>
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div>
 
-<div class="col-lg-6 col-lg-offset-3">
-    <table class="table table-bordered table-condensed table-responsive table-hover">
+            <table class="table table-striped table-condensed table-hover">
+                <tbody>
 
 
+                    @foreach (var v in Model)
+                    {
+                        <tr class="text-center">
+                            <th>Mobile Image</th>
+                            @foreach (var s in v.Images)
+                            {
+                                <td><img src="@Url.Content(s.Url)" alt="@s.Caption" style="width: 100px;height:100px" class="img-thumbnail" /></td>
+                            }
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Name</th>
+                            <td>@v.Name</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Total Availble Mobiles</th>
+                            @if (v.Stock > 0)
+                            {
+                                <td style="color: green">@v.Stock</td>
+                            }
+                            else if (v.Stock < 0)
+                            {
+                                <td style="color: red">@v.Stock</td>
+                            }
 
-        @foreach (var v in Model)
-        {
-            <tr class="text-center">
-                <th>Mobile Image</th>
-                @foreach (var s in v.Images)
-                {
-                    <td><img src="@Url.Content(s.Url)" alt="@s.Caption" style="width: 100px;height:100px" class="img-thumbnail" /></td>
-                }
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Name</th>
-                <td>@v.Name</td>
-            </tr>
-            <tr class="text-center">
-                <th>Total Availble Mobiles</th>
-                @if (v.Stock > 0)
-                {
-                    <td style="color: green">@v.Stock</td>
-                }
-                else if (v.Stock < 0)
-                {
-                    <td style="color: red">@v.Stock</td>
-                }
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Price</th>
+                            <td>@v.Price</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Brand</th>
+                            <td>@v.MobileBrand.Name</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile BackCam</th>
+                            <td>@v.BackCam</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile FrontCam</th>
+                            <td>@v.FrontCam</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Battery</th>
+                            <td>@v.Battery</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>BlueTooth</th>
+                            <td>@v.BlueTooth</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>FourG</th>
+                            <td>@v.FourG</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Wifi</th>
+                            <td>@v.Wifi</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>ThreeG</th>
+                            <td>@v.ThreeG</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Accessories</th>
+                            <td>@v.Accessories</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Release Date</th>
+                            <td>@v.ReleaseDate</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Warranty</th>
+                            <td>@v.Warranty</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Color</th>
+                            <td>@v.Color</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Description</th>
+                            <td>@v.Description</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Features</th>
+                            <td>@v.Features</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile Ram-Size</th>
+                            <td>@v.Ram</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Mobile ScreenSize</th>
+                            <td>@v.ScreenSize</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Operating-System </th>
+                            <td>@v.MobileOsVersion.MobileOS.Name</td>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Operating-System-Version</th>
+                            <td>@v.MobileOsVersion.Name</td>
+                        </tr>
 
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Price</th>
-                <td>@v.Price</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Brand</th>
-                <td>@v.MobileBrand.Name</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile BackCam</th>
-                <td>@v.BackCam</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile FrontCam</th>
-                <td>@v.FrontCam</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Battery</th>
-                <td>@v.Battery</td>
-            </tr>
-            <tr class="text-center">
-                <th>BlueTooth</th>
-                <td>@v.BlueTooth</td>
-            </tr>
-            <tr class="text-center">
-                <th>FourG</th>
-                <td>@v.FourG</td>
-            </tr>
-            <tr class="text-center">
-                <th>Wifi</th>
-                <td>@v.Wifi</td>
-            </tr>
-            <tr class="text-center">
-                <th>ThreeG</th>
-                <td>@v.ThreeG</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Accessories</th>
-                <td>@v.Accessories</td>
-            </tr>
-            <tr class="text-center">
-                <th>Release Date</th>
-                <td>@v.ReleaseDate</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Warranty</th>
-                <td>@v.Warranty</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Color</th>
-                <td>@v.Color</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Description</th>
-                <td>@v.Description</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Features</th>
-                <td>@v.Features</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile Ram-Size</th>
-                <td>@v.Ram</td>
-            </tr>
-            <tr class="text-center">
-                <th>Mobile ScreenSize</th>
-                <td>@v.ScreenSize</td>
-            </tr>
-            <tr class="text-center">
-                <th>Operating-System </th>
-                <td>@v.MobileOsVersion.MobileOS.Name</td>
-            </tr>
-            <tr class="text-center">
-                <th>Operating-System-Version</th>
-                <td>@v.MobileOsVersion.Name</td>
-            </tr>
+                    }
+                </tbody>
+            </table>
 
-        }
+        </div>
+        <br />
+        @*@Html.ActionLink("Back to Home", "Index")*@
+        <br />
+        <br />
 
-    </table>
-
-    <br />
-    @*@Html.ActionLink("Back to Home", "Index")*@
-    <br />
-    <br />
-
+    </div>
 </div>
 
