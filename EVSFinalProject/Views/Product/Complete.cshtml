@@ -2,24 +2,27 @@
 @{
     ViewBag.Title = "Complete";
     Layout = null;
-
-
 }
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
+
 <link href="~/Content/main.css" rel="stylesheet" />
 <div class="container">
-    <div class="col-lg-12">
-        <div class="jumbotron bounceInDown container-border" style="margin-top: 18%">
-            <strong style="margin-left: 20%;font-size: 34px; font-family:Courier New;">Your Order Submit Successfully</strong>
-            <p class="lead text-center">
-                Thank You... ! For Shopping From Our Site.We Will Sent Your Product as Soon As Possible<br />
-                For More Information You Can Contact us by Clicking on This Button<br /><br />
-                <a href="@Url.Action("Index","Contact")" class="btn btn-success">Contact us!</a>
-                <a href="@Url.Action("Index","Home")" class="btn btn-primary">You want Buy More...</a>
-            </p>
+    <div class="row">
 
-            <h4>@ViewBag.msg</h4>
+        <div class="col-lg-10 offset-lg-1">
+            <div class="jumbotron bounceInDown container-border" style="margin-top: 18%">
+                <h4 class="text-center">Your OrderId:@ViewBag.msg</h4>
+                <strong style="margin-left: 20%;font-size: 34px; font-family:Courier New;">Your Order Submit Successfully</strong>
+                <p class="text-center">
+                    Thank You... ! For Shopping From Our Site.We Will Sent Your Product as Soon As Possible<br />
+                    For More Information You Can Contact us by Clicking on This Button<br /><br />
+                    <a href="@Url.Action("Index","Contact")" class="btn btn-success">Contact us!</a>
+                    <a href="@Url.Action("Index","Home")" class="btn btn-primary">You want Buy More...</a>
+                </p>
 
+
+
+            </div>
         </div>
     </div>
 </div>
