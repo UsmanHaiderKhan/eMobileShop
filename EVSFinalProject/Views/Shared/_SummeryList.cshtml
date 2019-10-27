@@ -2,10 +2,10 @@
 @model IEnumerable<ProductSummeryModel>
 @if (Model != null)
 {
-    <div class="row" style="margin-bottom: 10px">
+    <div class="row mt-3">
         @foreach (var p in Model)
         {
-            <div id="proditem" class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:5% ">
+            <div id="proditem" class="col-lg-3 col-md-4 col-sm-6" style="margin-top:5% ">
                 <div class="product-card prodsmyitem">
                     @if (p.ImageUrl != null)
                     {
@@ -16,12 +16,12 @@
                     <h4>@p.Name</h4>
                     <strong>@p.Price/-</strong>
                     <p class="cartbtnwpr">
-                        <button type="button" style="margin-top: 5px;border-radius: 30px;float: left" class="btn btn-primary addcartbtn" data-pid="@p.Id" data-pname="@p.Name" data-pprice="@p.Price" data-purl="@p.ImageUrl" data-pqty="1">
-                            Cart&nbsp; <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <button type="button" style="margin-top: 5px;border-radius: 30px;float: left" class="btn btn-primary btn-sm addcartbtn" data-pid="@p.Id" data-pname="@p.Name" data-pprice="@p.Price" data-purl="@p.ImageUrl" data-pqty="1">
+                            Cart&nbsp; <span class="fa fa-shopping-cart"></span>
                         </button>
                     </p>
                     <p style="margin-top: 5px">
-                        <a href="@Url.Action("ViewDetail","Home", new { Id = p.Id})" style="border-radius: 30px" class="btn btn-success">Detail &nbsp;<span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a href="@Url.Action("ViewDetail","Home", new { Id = p.Id})" style="border-radius: 30px" class="btn btn-success btn-sm">Detail &nbsp;<span class="fa fa-eye"></span></a>
                     </p>
                 </div>
             </div>
