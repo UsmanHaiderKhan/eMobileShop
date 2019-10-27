@@ -22,39 +22,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="~/Content/fontawsome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawsome/css/fontawesome-all.css" rel="stylesheet" />
     <link href="~/Content/sb-admin-2.min.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-inverse" role="navigation">
+    <style>
+        side-scroll {
+            height: 600px;
+            overflow-y: scroll;
+        }
+
+        .heading {
+            color: #66cdaa !important;
+            font-size: 30px;
+            font-family: fantasy;
+        }
+    </style>
+    <nav class="navbar navbar-expand-sm bg-light navbar-dark bg-dark">
         <div class="container-fluid">
+            <a class="navbar-brand" href="@Url.Action("DashBoard", "Admin")">OnLine Mobile Shop</a>
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex1-collapse" aria-expanded="False">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="@Url.Action("DashBoard","Admin")"><span class="glyphicon glyphicon-phone"></span>OnLine Mobile Shop</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-ex1-collapse">
-                <ul class="nav navbar-nav" style="width: 50%;">
-                    <li style="color: #66cdaa; margin-left: 40%; font-size: 30px; font-family: fantasy;padding-top: 1%">Online Mobile Shop Panel</li>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link heading" href="@Url.Action("DashBoard", "Admin")">
+                            Online Mobile Shop Panel
+                        </a>
+                    </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index","Home")"><span class="fa fa-home"></span>&nbsp;Visit Site</a></li>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Home")"><span class="fa fa-home"></span>&nbsp;Visit Site</a></li>
                     @if (currentuser != null)
                     {
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp;@currentuser.FullName<span class="caret"></span></a>
+                        <li class="dropdown nav-item">
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><span class="fa fa-user"></span>&nbsp;@currentuser.FullName<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class="divider"></li>
-                                <li><a href="@Url.Action("Logout", "Users")"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                                <li class="nav-item"><a class="nav-link text-black-50" href=""> <span class="fa fa-user-circle"></span>&nbsp; Admin Panel</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li class="nav-item"><a class="nav-link text-black-50" href="@Url.Action("Logout", "Users")"><span class="fa fa-sign-out-alt"></span> Log out</a></li>
                             </ul>
                         </li>
 
@@ -63,64 +74,42 @@
             </div>
         </div><!-- /.navbar-collapse -->
     </nav>
-    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
-        <div class="sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu" style="margin-top: -25%;">
-                    <li><a href="@Url.Action("DashBoard","Admin")"><span class="fa fa-tachometer-alt"></span>&nbsp;&nbsp;Dash Board</a></li>
-                    <li><a href="@Url.Action("Customer","Admin")"><span class="fa fa-users fa-lg"></span>&nbsp;&nbsp;Users Details</a></li>
-                    <li><a href="@Url.Action("Messanger","Admin")"><span class="fa fa-envelope fa-lg"></span>&nbsp;&nbsp;Messanger</a></li>
-                    <li><a href="@Url.Action("Create","Product")"><span class="fa fa-crosshairs fa-lg"></span>&nbsp;&nbsp;Create Products</a></li>
-                    <li><a href="@Url.Action("TotalProduct","Admin")"><span class="fab fa-product-hunt fa-lg"></span>&nbsp;&nbsp;Total Products</a></li>
-                    <li><a href="@Url.Action("Orders","Admin")"><span class="fa fa-shopping-cart fa-lg"></span>&nbsp;&nbsp;Order Deatails <i class="badge">@Html.Action("GetOrdersCount", "product")</i></a></li>
-                    <li><a href="@Url.Action("Index","Admin")"><span class="fa fa-map-marker fa-lg"></span>&nbsp;&nbsp;Add Location</a></li>
-                    <li><a href="@Url.Action("Index","OperatingSystem")"><span class="glyphicon glyphicon-apple"></span>&nbsp;&nbsp;Operating System</a></li>
-                    <li><a href="@Url.Action("Index","Slider")"><span class="fa fa-file-image fa-lg"></span>&nbsp;&nbsp;Slider Images</a></li>
-                    <li><a href="@Url.Action("Index","Brands")"><span class="fa fa-mobile fa-lg"></span>&nbsp;&nbsp;Mobile Brands </a></li>
-                    <li><a href="@Url.Action("Index","Contact")"><span class="fa fa-comments fa-lg"></span>&nbsp;&nbsp;Recived Messages </a></li>
-                </ul>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-3 p-3 side-scroll">
+                <div class="sidebar navbar-nav">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="navbar-nav" id="side-menu" style="margin-top: -18%;">
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("DashBoard", "Admin")"><span class="fa fa-tachometer-alt"></span>&nbsp;&nbsp;Dash Board</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Customer", "Admin")"><span class="fa fa-users fa-lg"></span>&nbsp;&nbsp;Users Details</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Messanger", "Admin")"><span class="fa fa-envelope fa-lg"></span>&nbsp;&nbsp;Messanger</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Create", "Product")"><span class="fa fa-crosshairs fa-lg"></span>&nbsp;&nbsp;Create Products</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("TotalProduct", "Admin")"><span class="fab fa-product-hunt fa-lg"></span>&nbsp;&nbsp;Total Products</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Orders", "Admin")"><span class="fa fa-shopping-cart fa-lg"></span>&nbsp;&nbsp;Order Deatails <i class="badge badge-info">@Html.Action("GetOrdersCount", "product")</i></a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Admin")"><span class="fa fa-map-marker fa-lg"></span>&nbsp;&nbsp;Add Location</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "OperatingSystem")"><span class="fab fa-apple fa-lg"></span>&nbsp;&nbsp;Operating System</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Slider")"><span class="fa fa-file-image fa-lg"></span>&nbsp;&nbsp;Slider Images</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Brands")"><span class="fa fa-mobile fa-lg"></span>&nbsp;&nbsp;Mobile Brands </a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Contact")"><span class="fa fa-comments fa-lg"></span>&nbsp;&nbsp;Recived Messages </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 p-5">
+                @RenderBody()
             </div>
         </div>
     </div>
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <div>
-            @RenderBody()
-        </div>
-    </div>
+
     @*Footer Area Work*@
-    <div class="nav navbar-inverse navbar-fixed-bottom">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3">
-                    <a href="#"><h4 align="center" style="color: white"><obquee>Usman Haider Khan</obquee></h4></a>
-                </div>
-                <div class="col-lg-6">
-                    <h5 align="center">
-                        <a href="#">
-                            C@py Right Law Reserved By Evs Project
-                        </a>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-------------------------------Script Files-------------------------------------->
-    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/vendor/jquery.min.js"></script>
+    <script src="~/Content/assets/js/vendor/popper.min.js"></script>
+    <script src="~/Content/assets/js/vendor/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     @RenderSection("myscript", required: false)
 </body>
 </html>
-@*<div class="menu" style="margin-top: 8.1%">
-        <div>
-            <ul>
-                <li><a href="" data-toggle="tooltip" data-placement="top" title="dashboard"><span class="fa fa-dashboard fa-lg"></span>dashboard</a></li>
-                <li><a href="../admin/userdetails" data-toggle="tooltip" data-placement="top" title="users details"><span class="fa fa-users fa-lg"></span>users</a></li>
-                <li><a href="../admin/messanger" data-toggle="tooltip" data-placement="top" title="message"><span class="fa fa-envelope fa-lg"></span>messanger</a></li>
-                <li><a href="../product/create" data-toggle="tooltip" data-placement="top" title="create products"><span class="fa fa-product-hunt fa-lg" aria-hidden="true"></span>create products</a></li>
-                <li><a href="../admin/productdetails" data-toggle="tooltip" data-placement="top" title="product detaiils"><span class="fa fa-arrow-circle-right fa-lg"></span>product deatails</a></li>
-                <li><a href="../admin/productdetails" data-toggle="tooltip" data-placement="top" title="product detaiils"><span class="fa fa-shopping-cart fa-lg"></span>order deatails</a></li>
-            </ul>
-        </div>
-    </div>*@
+
