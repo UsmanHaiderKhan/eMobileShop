@@ -1,0 +1,55 @@
+﻿@model EVSFinalProjectClasses.ProductMgmt.PlaceOrder
+@{
+    ViewBag.Title = "TrackOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">TrackOrder</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            @using (Html.BeginForm("TrackOrder", "Product", FormMethod.Post, new { id = "trackOrder", enctype = "multipart/form-data" }))
+
+            {
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><span class="fa fa-search"></span></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="#ID-3489" aria-label="#ID 3489" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-outline-warning"><span class="fa fa-search"></span>&nbsp;&nbsp;Search</button>
+                </div>
+            }
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Order_Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var v in Model.User_Id)
+                    {
+                        <tr>
+                            <td>@v.</td>
+                        </tr>
+
+                        @*  *@}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
