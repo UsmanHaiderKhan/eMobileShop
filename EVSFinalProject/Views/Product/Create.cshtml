@@ -9,10 +9,20 @@
 <style type="text/css">
     .mytabpane {
         padding: 10px;
-        border-left: solid 3px #e4e4e4;
-        border-right: solid 3px #e4e4e4;
-        border-bottom: solid 3px #e4e4e4;
+        border-left: solid 2px #dee2e6;
+        border-right: solid 2px #dee2e6;
+        border-bottom: solid 2px #dee2e6;
     }
+
+    .nav-tabs {
+        border-bottom: 2px solid #dee2e6;
+    }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #495057;
+            background-color: transparent;
+            border-color: #dee2e6 #dee2e6;
+        }
 </style>
 @if (msg != null)
 {
@@ -21,14 +31,18 @@
         <strong>@msg.Heading!</strong> @msg.Content.
     </div>
 }
+
 <div style="margin-right: 5%">
     @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { id = "prodForm", enctype = "multipart/form-data" }))
     {
+
+        @*<form action="@Url.Action("Create")" method="post" enctype="multipart/form-data">*@
+
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#generalTab" data-toggle="tab">General</a></li>
-            <li><a href="#specificTab" data-toggle="tab">Specific</a></li>
-            <li><a href="#descriptionlTab" data-toggle="tab">Decription</a></li>
-            <li><a href="#imagesTab" data-toggle="tab">Images</a></li>
+            <li class="nav-item"><a class="active nav-link" href="#generalTab" data-toggle="tab">General</a></li>
+            <li class="nav-item"><a class="nav-link" href="#specificTab" data-toggle="tab">Specific</a></li>
+            <li class="nav-item"><a class="nav-link" href="#descriptionlTab" data-toggle="tab">Decription</a></li>
+            <li class="nav-item"><a class="nav-link" href="#imagesTab" data-toggle="tab">Images</a></li>
 
         </ul>
         <div class="tab-content">
@@ -45,7 +59,7 @@
                     <label for="os">Operating System:</label>
                     <div class="form-inline">
                         <div style="float: left; padding-right: 5px">
-                            @Html.DropDownList("os", (IEnumerable<SelectListItem>)ViewBag.OSList, "- Operting System -", new { @class = "form-control" })
+                            @Html.DropDownList("OS", (IEnumerable<SelectListItem>)ViewBag.OSList, "- Operting System -", new { @class = "form-control" })
                         </div>
                         <div id="osvdiv" style="float: left;">
                         </div>
@@ -70,97 +84,111 @@
                 </div>
             </div>
             <div id="specificTab" class="row mytabpane tab-pane mytab">
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <div class="cols-sm-10">
-                            @Html.LabelFor(m => m.Color)
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-mobile-alt fa-lg" style="color: crimson" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.Color, new { @class = "form-control", placeholder = "Mobile Color " })
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="cols-sm-10">
-                            @Html.LabelFor(m => m.Warranty)
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-file-alt fa-lg" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.Warranty, new { @class = "form-control", placeholder = "Mobile Warranty 2/3/2018", type = "date" })
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="cols-sm-10">
-                            @Html.LabelFor(m => m.Features)
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.Features, new { @class = "form-control", placeholder = "Mobile Features" })
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="cols-sm-10">
-                            @Html.LabelFor(m => m.Ram)
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-ram fa-lg" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.Ram, new { @class = "form-control", placeholder = "Mobile Ram Size" })
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <div class="cols-sm-10">
-                            @Html.LabelFor(m => m.FrontCam)
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.FrontCam, new { @class = "form-control", placeholder = "Front Camra Pixel" })
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="cols-sm-10">
-                            @Html.LabelFor(m => m.BackCam)
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-camera fa-lg" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.BackCam, new { @class = "form-control", placeholder = "Front Camra Pixel" })
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="cols-sm-10">
-                            @Html.LabelFor(m => m.ScreenSize)
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-tv fa-lg" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.ScreenSize, new { @class = "form-control", placeholder = "Front Camra Pixel" })
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="cols-sm-10">
-                            @Html.LabelFor(m => m.Battery)
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-battery-half fa-lg" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.Battery, new { @class = "form-control", placeholder = "Front Camra Pixel" })
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
-                    <div class="form-group">
-                        <div class="cols-sm-10">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <div class="col-sm-11">
+                                @Html.LabelFor(m => m.Color)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-mobile-alt fa-lg" style="color: crimson" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.Color, new { @class = "form-control", placeholder = "Mobile Color " })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-11">
+                                @Html.LabelFor(m => m.Warranty)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-file-alt fa-lg" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.Warranty, new { @class = "form-control", placeholder = "Mobile Warranty 2/3/2018", type = "date" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-11">
+                                @Html.LabelFor(m => m.Features)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-star fa-lg" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.Features, new { @class = "form-control", placeholder = "Extra Features" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-11">
+                                @Html.LabelFor(m => m.Ram)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-save fa-lg" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.Ram, new { @class = "form-control", placeholder = "Mobile Ram Size" })
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <div class="col-sm-11">
+                                @Html.LabelFor(m => m.FrontCam)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.FrontCam, new { @class = "form-control", placeholder = "Front Camera Pixel" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-11">
+                                @Html.LabelFor(m => m.BackCam)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-camera fa-lg" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.BackCam, new { @class = "form-control", placeholder = "Back Camera Pixel" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-11">
+                                @Html.LabelFor(m => m.ScreenSize)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-tv fa-lg" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.ScreenSize, new { @class = "form-control", placeholder = "Mobile Screen Size" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-11">
+                                @Html.LabelFor(m => m.Battery)
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-battery-half fa-lg" aria-hidden="true"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.Battery, new { @class = "form-control", placeholder = "Mobile Battery Size(mAh)" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
                             @Html.LabelFor(m => m.Stock)
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-star fa-lg" aria-hidden="true"></i></span>
-                                @Html.TextBoxFor(m => m.Stock, new { @class = "form-control", placeholder = "Front Camra Pixel" })
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-chart-line fa-lg" aria-hidden="true"></i></span>
+                                </div>
+                                @Html.TextBoxFor(m => m.Stock, new { @class = "form-control", placeholder = "Available Phones" })
                             </div>
                         </div>
                     </div>
@@ -180,29 +208,42 @@
             </div>
         </div>
         <div style="margin-top: 10px">
-            <button type="submit" class="btn btn-primary" id="prodForm"><span class="fa fa-save"></span>&nbsp; Save</button>
-            <button type="reset" class="btn btn-default" id="prodForm"><span class="fa fa-times"></span>&nbsp;Cancle</button>
+            @*<a href="@Url.Action("Create","Product")" type="submit">Submit</a>*@
+            <button type="submit" class="btn btn-outline-primary" id="prodForm"><span class="fa fa-save"></span>&nbsp; Save</button>
+            <button type="reset" class="btn btn-outline-danger" id="prodForm"><span class="fa fa-times"></span>&nbsp;Cancle</button>
         </div>
     }
 </div>
 
+
+
 @section myscript{
 
     <script type="text/javascript">
-        $("#os").change(function () {
+        $(document).ready(function () {
+            $("#prodForm").click(() => {
+            });
 
-            var osid = $(this).select("option:selected").val();
-            $.ajax(
-                {
-                    url: "/Product/OsVersions/" + osid,
-                    type: "get",
-                    success: function (result) {
-                        $("#osvdiv").html(result);
+            $("#OS").change(function () {
+
+                var osid = $(this).val();
+
+                $.ajax(
+                    {
+                        url: "/Product/OsVersions/" + osid,
+                        type: "get",
+                        success: function (result) {
+                            $("#osvdiv").html(result);
+                        }
                     }
-                }
-            );
+                );
 
+            });
         });
-
+        $(function () {
+            setTimeout(function () {
+                $(".alert").fadeOut('blind');
+            }, 5000);
+        });
     </script>
 }
