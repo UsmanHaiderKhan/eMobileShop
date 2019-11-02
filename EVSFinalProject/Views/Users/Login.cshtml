@@ -6,16 +6,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/fontawsome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Content/fontawsome/css/fontawesome-all.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/sweetalert.css" rel="stylesheet" />
     <link href="~/Content/Login.css" rel="stylesheet" />
     <meta charset="utf-8" />
 </head>
 <body class="bg2-img">
-    @RenderPage("~/Views/Users/SignUp.cshtml");
+    @RenderPage("~/Views/Users/SignUp.cshtml")
     <div class="container">
-        <div class="col-lg-8 col-md-8 col-sm-12 container-border img-responsive logintran">
+        <div class="col-lg-8 col-md-8 col-sm-12 container-border img-fluid logintran">
             @if (ViewBag.ErrorMessage != null)
             {
                 <p> @ViewBag.ErrorMessage</p>
@@ -23,41 +23,41 @@
             @using (Html.BeginForm("Login", "Users", new { c = ViewBag.Controller, a = ViewBag.Action }, FormMethod.Post, new { id = "loginform" }))
             {
                 <div class="form-group">
-                    <label>Email</label>
+                    <label class="label-text">Email</label>
                     @Html.TextBoxFor(m => m.Loginid, new { @class = "form-control", placeholder = "Enter Valid Email" })
                     <br />
                     <div style="text-align: center;"> @Html.ValidationMessageFor(m => m.Loginid, null, new { style = "color :red" }) </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Password</label>
+                    <label class="label-text">Password</label>
                     @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Enter Your Password", type = "password" })
                     <br />
                     <div style="text-align: center;">@Html.ValidationMessageFor(m => m.Password, null, new { style = "color :red" })</div>
                 </div>
-
-                <div>
-                    <input type="checkbox" style="display: inline; width: auto" />
-                    <lablel style="display: inline"> Remember Me</lablel>
-                    @*<input type="checkbox" style="float: left" />
-                        <label for="remenberme" style="width: 0px; margin-right: 0%">Remember me</label>*@
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label label-text" for="exampleCheck1">Remember Me</label>
+                    </div>
                 </div>
 
-
-
-
+                @*<div>
+                        <input type="checkbox" class="d-inline" id="remember-me" name="remember-me" />
+                        <span for="remember-me" class=" d-inline"> Remember Me</span>
+                    </div>*@
                 <div class="text-center">
                     <input type="submit" value="Login" />
                 </div>
             }
-            <div style="margin-top: 4%">
+            <div class="mt-1">
                 <div class="text-center">
                     <a href="@Url.Action("PasswordRecovery","Users")" style="color: blue">Recover Your Password!</a>
                 </div>
             </div>
-            <div style="margin-top: 4%">
+            <div class="mt-1">
                 <div class="text-center">
-                    <a href="#" data-toggle="modal" data-target="#myModal" style="color: darkblue">Get Register Your Account...!</a>
+                    <a href="#" data-toggle="modal" data-target="#myModals" style="color: darkblue">Get Register Your Account...!</a>
                 </div>
             </div>
         </div>
@@ -87,19 +87,7 @@
             }); //Get Register Function here
             //Login Function Here
         }); //REady Function Here
-        //Ajax Call For The Sign Up Page
-        //$("#register").click(function () {
-        //    alert("YES")
-        //    var data = $('#loginform').serialize();
-        //    $.ajax({
-        //        type: "POST",
-        //        url: "/Users/SignUp/",
-        //        data: data,
-        //        success: function(response) {
-        //            sweetAlert("Success", "You Are Register SuccessFully", "success");
-        //        }
-        //    });
-        //  });//Finish Ajax Call
+
 
         //AjaxCalling of SignUp Page
         $("#Country").change(function () {
