@@ -250,5 +250,22 @@ namespace EVSFinalProjectClasses.ProductMgmt
                 return (from c in db.Contacts select c).ToList();
             }
         }
+        public int GetOrderIdByUser(int id)
+        {
+            dbcontext db = new dbcontext();
+            using (db)
+            {
+                return (from c in db.PlaceOrders where c.User_Id == id select c).FirstOrDefault().Id;
+
+            }
+        }
+        public PlaceOrder GetUserOrders(int User_id)
+        {
+            dbcontext db = new dbcontext();
+            using (db)
+            {
+                return (from c in db.PlaceOrders where c.User_Id == User_id select c).FirstOrDefault();
+            }
+        }
     }
 }
