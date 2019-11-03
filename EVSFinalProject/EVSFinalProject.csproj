@@ -104,12 +104,14 @@
   <ItemGroup>
     <Content Include="Content\145848.png" />
     <Content Include="Content\19443.jpg" />
-    <Content Include="Content\allSStyles.min.css" />
     <Content Include="Content\animate.css" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\assets\css\styles.css" />
+    <Content Include="Content\assets\css\vendor\bootstrap.min.css" />
+    <Content Include="Content\assets\css\vendor\contact.css" />
+    <Content Include="Content\assets\js\script.js" />
+    <Content Include="Content\assets\js\vendor\bootstrap.min.js" />
+    <Content Include="Content\assets\js\vendor\jquery.min.js" />
+    <Content Include="Content\assets\js\vendor\popper.min.js" />
     <Content Include="Content\close-icone-5671-32.png" />
     <Content Include="Content\Images\1.png" />
     <Content Include="Content\Images\cold.png" />
@@ -129,9 +131,11 @@
     <Content Include="Content\Login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\onr.jpg" />
+    <Content Include="Content\assets\css\vendor\owl.carousel.min.css" />
+    <Content Include="Content\assets\css\vendor\owl.theme.default.min.css" />
+    <Content Include="Content\assets\js\vendor\owl.carousel.min.js" />
     <Content Include="Content\sb-admin-2.min.css" />
     <Content Include="Content\sins.css" />
-    <Content Include="Content\style.css" />
     <Content Include="Content\Styles\contact.css" />
     <Content Include="Content\Styles\styles.css" />
     <Content Include="Content\sweetalert.css" />
@@ -142,7 +146,7 @@
     <Content Include="Content\fontawsome\css\fa-solid.css" />
     <Content Include="Content\fontawsome\css\fa-solid.min.css" />
     <Content Include="Content\fontawsome\css\fontawesome-all.css" />
-    <Content Include="Content\fontawsome\css\fontawesome-all.min.css" />
+    <Content Include="Content\assets\css\vendor\fontawesome-all.min.css" />
     <Content Include="Content\fontawsome\css\fontawesome.css" />
     <Content Include="Content\fontawsome\css\fontawesome.min.css" />
     <Content Include="Content\fontawsome\webfonts\fa-brands-400.svg" />
@@ -200,6 +204,10 @@
     <Content Include="Content\fontawsome\webfonts\fa-solid-900.woff" />
     <Content Include="Content\fontawsome\webfonts\fa-solid-900.woff2" />
     <Content Include="libman.json" />
+    <Content Include="Content\assets\css\vendor\fonts\AriaTextG1-SemiBoldItalic.otf" />
+    <Content Include="Content\assets\css\vendor\fonts\Aspira Demi.otf" />
+    <Content Include="Content\assets\css\vendor\fonts\airstrikechrome.ttf" />
+    <Content Include="Content\assets\css\vendor\fonts\BarlowCondensed-Black.otf" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />
@@ -277,10 +285,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Views\Home\ByCategory.cshtml" />
     <Content Include="Views\Cart\ViewCart.cshtml" />
     <Content Include="Views\Users\PasswordRecovery.cshtml" />
@@ -324,6 +328,7 @@
     <Content Include="Views\Contact\Send.cshtml" />
     <Content Include="Views\Contact\PostMessage.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Product\TrackOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -333,8 +338,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Banners\" />
     <Folder Include="Content\Images\Slider\" />
+    <Folder Include="Content\owl-carousel\css\" />
     <Folder Include="Views\Banner\" />
   </ItemGroup>
   <ItemGroup>
