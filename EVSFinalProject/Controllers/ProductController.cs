@@ -298,7 +298,7 @@ namespace EVSFinalProject.Controllers
             if (userId == OrderId)
             {
                 var user = handler.GetUserOrders(userId);
-                return View(user);
+                ViewBag.users = user;
             }
             return View();
         }
