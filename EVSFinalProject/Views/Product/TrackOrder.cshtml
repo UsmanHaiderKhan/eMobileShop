@@ -40,13 +40,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var v in Model.User_Id)
+                    @foreach (var v in ViewBag.users)
                     {
                         <tr>
-                            <td>@v.</td>
+                            <td>@v</td>
                         </tr>
 
-                        @*  *@}
+                    }
                 </tbody>
             </table>
         </div>
