@@ -259,12 +259,32 @@ namespace EVSFinalProjectClasses.ProductMgmt
 
             }
         }
+
+        public PlaceOrder GetOrderByOrderId(int orderId)
+        {
+            dbcontext db = new dbcontext();
+            using (db)
+            {
+                return (from c in db.PlaceOrders.Include(m => m.CartItems) where c.Id == orderId select c).FirstOrDefault();
+
+            }
+        }
+
         public PlaceOrder GetUserOrders(int User_id)
         {
             dbcontext db = new dbcontext();
             using (db)
             {
-                return (from c in db.PlaceOrders where c.User_Id == User_id select c).FirstOrDefault();
+                return (from c in db.PlaceOrders.Include(m => m.CartItems) where c.User_Id == User_id select c).FirstOrDefault();
+            }
+        }
+        public List<PlaceOrder> GetCartItemsByUser(int User_id)
+        {
+            dbcontext db = new dbcontext();
+            using (db)
+            {
+                return (from c in db.PlaceOrders.Include(m => m.CartItems) where c.User_Id == User_id select c).ToList();
+
             }
         }
     }
