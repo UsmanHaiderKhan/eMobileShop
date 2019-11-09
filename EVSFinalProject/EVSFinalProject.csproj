@@ -329,6 +329,7 @@
     <Content Include="Views\Contact\PostMessage.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Product\TrackOrder.cshtml" />
+    <Content Include="Views\Shared\_Product_details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
