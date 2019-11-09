@@ -1,7 +1,10 @@
 ﻿@model EVSFinalProjectClasses.ProductMgmt.PlaceOrder
+@using EVSFinalProjectClasses
+@using EVSFinalProjectClasses.UserManagment
 @{
     ViewBag.Title = "TrackOrder";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    User cUser = (User)Session[WebUtils.Current_User];
 }
 
 <h2 class="text-center">TrackOrder</h2>
@@ -16,7 +19,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><span class="fa fa-search"></span></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="#ID-3489" aria-label="#ID 3489" aria-describedby="basic-addon1">
+                        <input name="orderId" type="text" class="form-control" placeholder="#ID-3489" aria-label="#ID 3489" aria-describedby="basic-addon1">
                     </div>
                 </div>
                 <div class="form-group text-center">
@@ -29,27 +32,33 @@
     </div>
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                        <th>Order_Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var v in ViewBag.users)
-                    {
+            <h5 class="text-center">Buyer Info</h5>
+            <div class="table-responsive">
+                <table class="table table-light table-striped table-hover">
+                    <thead>
                         <tr>
-                            <td>@v</td>
+                            <th>UserName</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Order_Status</th>
                         </tr>
-
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            <tr>
+                                <td>@Model.BuyerName</td>
+                                <td>@Model.EmailAddress</td>
+                                <td>@Model.Phone</td>
+                                <td>@Model.FullAddress</td>
+                                <td>@Model.IsActive</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            @*@Html.Partial("_Product_details");*@
         </div>
     </div>
 </div>
-
