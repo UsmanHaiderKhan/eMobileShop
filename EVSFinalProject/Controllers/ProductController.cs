@@ -288,20 +288,35 @@ namespace EVSFinalProject.Controllers
                 return (from c in db.Mobiles select c).Count();
             }
         }
+        [HttpGet]
         public ActionResult TrackOrder()
         {
-
-            User currentuser = (User)Session[WebUtils.Current_User];
-            var userId = currentuser.Id;
-            ProductHandler handler = new ProductHandler();
-            var OrderId = handler.GetOrderIdByUser(userId);
-            if (userId == OrderId)
-            {
-                var user = handler.GetUserOrders(userId);
-                ViewBag.users = user;
-            }
             return View();
         }
+
+        [HttpPost]
+        public ActionResult TrackOrder(FormCollection fdata)
+        {
+            int orderId = Convert.ToInt32(fdata["orderId"]);
+            User cUser = (User)Session[WebUtils.Current_User];
+
+            ProductHandler handler = new ProductHandler();
+            PlaceOrder userOrder = handler.GetOrderByOrderId(orderId);
+
+            //ViewBag.userOrder = userOrder;
+
+            return View(userOrder);
+        }
+
+        public ActionResult Cartitems(FormCollection fdata)
+        {
+            int orderId = Convert.ToInt32(fdata["orderId"]);
+            ProductHandler handler = new ProductHandler();
+            List<PlaceOrder> userOrder = handler.GetCartItemsByUser(orderId);
+
+            return PartialView("Views/Shared/_product_details.cshtml", userOrder);
+        }
     }
+
 
 }
